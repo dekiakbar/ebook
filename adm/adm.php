@@ -2,15 +2,33 @@
 <html>
 <head>
 	<title>Login Admin</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<script type="text/javascript" href="js/bootstrap.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/sweetalert2.css">
+	<script type="text/javascript" src="../js/sweetalert2.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
 </head>
-<body>
-<form action="" method="post">
-	<input type="text" name="username">
-	<input type="password" name="password">
-	<input type="submit" name="Login">
-</form>
+<body style="background-image: url('../gambar/login.jpg');">
+<div class="container">
+	<div class="content">
+		<div class="row">
+			<div class="col-md-12">
+	            <div class="wrap">
+	                <p class="judul">Login Page</p>
+	                <form class="login" action="" method="post">
+		                <input type="text" name="username" placeholder="Username" />
+		                <input type="password" name="password" placeholder="Password" />
+		                <input type="submit" value="Login" class="btn btn-info btn-sm" />
+		            </form>
+	            </div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
 
@@ -31,7 +49,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
          $_SESSION['login_user'] = $username;
          header ('location:sukses.php');
       }else{
-         echo "Username atau Password salah";
+         echo "<script>
+         		swal('Eror','Username atau password salah!','error');
+         	   </script>";
       }
 }
  ?>
