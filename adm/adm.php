@@ -20,9 +20,9 @@
 	            <div class="wrap">
 	                <p class="judul">Login Page</p>
 	                <form class="login" action="" method="post">
-		                <input type="text" name="username" placeholder="Username" />
-		                <input type="password" name="password" placeholder="Password" />
-		                <input type="submit" value="Login" class="btn btn-info btn-sm" />
+		                <input type="text" name="username" placeholder="Username" required/>
+		                <input type="password" name="password" placeholder="Password" required/>
+		                <input type="submit" value="Login" class="btn btn-primary btn-sm" />
 		            </form>
 	            </div>
 			</div>

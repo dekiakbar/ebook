@@ -11,8 +11,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<script type="text/javascript" href="../js/bootstrap.min.js"></script>
-	<script type="text/javascript" href="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -45,8 +45,8 @@
                             <td><span class="label label-info">'.$data['donasi'].'</span></td>
 							<td>
 								
-								<a href="edit.php?nik='.$data['id'].'" title="Edit Data" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="index.php?aksi=delete&nik='.$data['id'].'" title="Hapus Data" onclick="return confirm(\'Anda yakin akan menghapus E-Book '.$data['jdl'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								<a href="edit.php?nik='.$data['id'].'" title="Edit Ebook" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+								<a href="index.php?aksi=delete&nik='.$data['id'].'" title="Hapus Ebook" onclick="return confirm(\'Anda yakin akan menghapus E-Book '.$data['jdl'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>
 						';

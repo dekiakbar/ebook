@@ -62,3 +62,8 @@ form.login input[type="submit"]:hover
 {
     transition: background-color 0.7s ease;
 }
+
+.col-sm-12 form {
+    float: none;
+    margin: 0 auto;
+}
