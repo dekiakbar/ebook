@@ -93,6 +93,7 @@
 
 	<?php 
 	if (isset($_POST['tambah'])) {
+			$nama 		= $_FILES['file']['name'];
 			$tipe		= explode('.',$_FILES['file']['name']);
 			$extensi	= strtolower(end($tipe));
 			$jenis 		= array('doc','docx','pdf');
@@ -101,19 +102,26 @@
 			$pengarang 	= $_POST['pengarang'];
 			$donasi 	= $_POST['donasi'];
 			$kat 		= $_POST['kat'];
-			$pass 		= md5($_POST['pass'];);
+			$pass 		= md5($_POST['pass']);
 			$tgl		= date('h-i-s, j-m-y');
+			$file_tmp = $_FILES['file']['tmp_name'];
 
 			$tes 		= mysqli_query($koneksi," SELECT * FROM buku WHERE jdl='$judul'");
-			$apass		= mysqli_query($koneksi," SELECT * FROM admin WHERE pass='$pass'")
+			$apass		= mysqli_query($koneksi," SELECT * FROM admin WHERE pass='$pass'");
 			if (mysqli_num_rows($tes) == 0) {
 				if (mysqli_num_rows($apass) == 1) {
-					$insert = mysqli_query($koneksi, "INSERT INTO buku(jdl, nmp, kat, link, tgl, donasi) VALUES ('$judul', '$pengarang', '$kat', 'file/', '$tgl', '$donasi')") or die(mysqli_error());
-					if ($insert) {
-						echo "<script>swal('Sukses','Upload Berhasil','success');</script>";
+					if (in_array($extensi, $jenis) === true) {
+						move_uploaded_file($file_tmp, '../ebook/'.$nama);
+						$insert = mysqli_query($koneksi, "INSERT INTO buku(jdl, nmp, kat, link, tgl, donasi, ukuran) VALUES ('$judul', '$pengarang', '$kat', ''../ebook/'.$nama', '$tgl', '$donasi', '$ukuran')") or die(mysqli_error());
+						if ($insert) {
+							echo "<script>swal('Sukses','Upload Berhasil','success');</script>";
+						}else{
+							echo "<script>swal('Gagal','Upload Gagal','error');</script>";
+						}
 					}else{
-						echo "<script>swal('Gagal','Upload Gagal','error');</script>";
+						echo "<script>swal('Error','File yang diperbolehkan .pdf, .doc, .docx','error');</script>";
 					}
+						
 				}else{
 					echo "<script>swal('Error','Password Salah!','error');</script>";
 				}
