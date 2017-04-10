@@ -109,7 +109,16 @@
 			if (mysqli_num_rows($tes) == 0) {
 				if (mysqli_num_rows($apass) == 1) {
 					$insert = mysqli_query($koneksi, "INSERT INTO buku(jdl, nmp, kat, link, tgl, donasi) VALUES ('$judul', '$pengarang', '$kat', 'file/', '$tgl', '$donasi')") or die(mysqli_error());
+					if ($insert) {
+						echo "<script>swal('Sukses','Upload Berhasil','success');</script>";
+					}else{
+						echo "<script>swal('Gagal','Upload Gagal','error');</script>";
+					}
+				}else{
+					echo "<script>swal('Error','Password Salah!','error');</script>";
 				}
+			}else{
+				echo "<script>swal('Error','Buku Sudah Ada','error');</script>";
 			}
 		}	
 	 ?>
