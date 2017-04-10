@@ -26,6 +26,7 @@
 						<th>Kategori</th>
 						<th>Tanggal</th>
 						<th>Donasi</th>
+						<th>Ukuran</th>
 						<th>Menu</th>
 					</tr>
 					<?php 
@@ -43,6 +44,7 @@
                             <td>'.$data['kat'].'</td>
 							<td>'.$data['tgl'].'</td>
                             <td><span class="label label-info">'.$data['donasi'].'</span></td>
+                            <td>'.$data['ukuran'].'</td>
 							<td>
 								
 								<a href="edit.php?nik='.$data['id'].'" title="Edit Ebook" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
