@@ -115,7 +115,7 @@
 				if (mysqli_num_rows($apass) == 1) {
 					if (in_array($extensi, $jenis) === true) {
 						move_uploaded_file($file_tmp, '../ebook/'.$nama);
-						$insert = mysqli_query($koneksi," INSERT INTO buku(jdl, nmp, kat, link, tgl, donasi, ukuran)VALUES ('$judul', '$pengarang', '$kat', '$nama', '$tgl', '$donasi', '$ukuran')") or die(mysqli_error());
+						$insert = mysqli_query($koneksi," INSERT INTO buku(jdl, nmp, kat, link, tgl, donasi, ukuran)VALUES ('$judul', '$pengarang', '$kat', '../ebook/$nama', '$tgl', '$donasi', '$ukuran')") or die(mysqli_error());
 						if ($insert) {
 							echo "<script>swal('Sukses','Upload Berhasil','success');</script>";
 						}else{
