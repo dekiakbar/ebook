@@ -67,3 +67,14 @@ form.login input[type="submit"]:hover
     float: none;
     margin: 0 auto;
 }
+
+
+/*===========
+tambah.php
+=============*/
+
+input .file{
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+}

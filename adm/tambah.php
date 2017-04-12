@@ -47,36 +47,27 @@
 						<div class="form-group">
 							<label class="control-label col-sm-4">File:</label>
 							<div class="col-sm-6">
-								<input type="file" name="file">
+								<input class="file" type="file" name="file">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-sm-4">Kategori:</label>
-							<div class="col-sm-8 text-center">
-								<label class="checkbox-inline">
-									<input type="checkbox" name="kat" value="1"><span class="label label-success">HTML</span>
-								</label>
-								<label class="checkbox-inline">
-									<input type="checkbox" name="" value="2"><span class="label label-success">CSS</span>
-								</label>
-								<label class="checkbox-inline">
-									<input type="checkbox" name="" value="3"><span class="label label-success">PHP</span>
-								</label>
-								<label class="checkbox-inline">
-									<input type="checkbox" name="" value="4"><span class="label label-success">C</span>
-								</label>
-								<label class="checkbox-inline">
-									<input type="checkbox" name="" value="5"><span class="label label-info">Linux</span>
-								</label>
-								<label class="checkbox-inline">
-									<input type="checkbox" name="" value="6"><span class="label label-info">Ubuntu</span>
-								</label>
-								<label class="checkbox-inline">
-									<input type="checkbox" name="" value="7"><span class="label label-danger">Network</span>
-								</label>
-								<label class="checkbox-inline">
-									<input type="checkbox" name="" value="8"><span class="label label-success">Java</span>
-								</label>
+							<div class="col-sm-8 text-left">
+								<?php 
+								$dbkate	= mysqli_query($koneksi,"SELECT * FROM kate");
+									if (mysqli_num_rows($dbkate) == 0) {
+										echo "<script>swal('Error','Belum ada kategori','error');</script>
+										<h4>Kategori Kosong</h4>";
+									}else{
+										while ($data = mysqli_fetch_assoc($dbkate)) {
+											echo '
+												<label class="checkbox-inline">
+													<input type="checkbox" name="kat[]" value="'.$data['id'].'"><span class="label label-success">'.$data['kategori'].'</span>
+												</label>
+											';
+										}
+									}
+								 ?>
 							</div>
 						</div>
 						<div class="form-group">
@@ -107,14 +98,14 @@
 			$kat 		= $_POST['kat'];
 			$pass 		= md5($_POST['pass']);
 			$tgl		= date('h:i:s j-m-y');
-			$file_tmp 	= $_FILES['file']['tmp_name'];
+			$file 	= $_FILES['file']['tmp_name'];
 			
 			$tes 		= mysqli_query($koneksi," SELECT * FROM buku WHERE jdl='$judul'");
 			$apass		= mysqli_query($koneksi," SELECT * FROM admin WHERE pass='$pass'");
 			if (mysqli_num_rows($tes) == 0) {
 				if (mysqli_num_rows($apass) == 1) {
 					if (in_array($extensi, $jenis) === true) {
-						move_uploaded_file($file_tmp, '../ebook/'.$nama);
+						move_uploaded_file($file, '../ebook/'.$nama);
 						$insert = mysqli_query($koneksi," INSERT INTO buku(jdl, nmp, kat, link, tgl, donasi, ukuran)VALUES ('$judul', '$pengarang', '$kat', '../ebook/'.'$nama', '$tgl', '$donasi', '$ukuran')") or die(mysqli_error());
 						if ($insert) {
 							echo "<script>swal('Sukses','Upload Berhasil','success');</script>";
