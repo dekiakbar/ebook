@@ -108,7 +108,7 @@ tambah
    
 }
 
-.col-sm-8 .col-sm-10 {
+.warbel {
     color: #fff;
     background-color: rgba(255,255,255,0.2);
     border-radius: 15px;
@@ -120,29 +120,24 @@ tambah
 
 .form-group .col-sm-8 input {
     background-color: rgba(0,0,0,0.2);
-    color: rgba(255,255,255,0.7);
-}
-
-.form-group .col-sm-8 input[type="checkbox"] {
-    background-color: rgba(0,0,0,0.1);
-    color: rgba(255,255,255,0.7);
+    color: rgb(255,255,255);
 }
 
 .col-sm-8 input.col-sm-8 input::-webkit-input-placeholder {
-    color:    #fff;
+    color: rgba(255,255,255,0.7);
 }
 
 .col-sm-8 input:-moz-placeholder {
-    color:    #fff;
+    color: rgba(255,255,255,0.7);
     opacity:  1;
 }
 
 .col-sm-8 input::-moz-placeholder { 
-    color:    #fff;
+    color: rgba(255,255,255,0.7);
     opacity:  1;
 }
 
 .col-sm-8 input:-ms-input-placeholder {
-    color:    #fff;
+    color: rgba(255,255,255,0.7);
 }
 

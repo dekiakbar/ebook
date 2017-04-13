@@ -23,8 +23,8 @@
 		<div class="container tengah">
 			<div class="content">
 				<div class="row">
-					<div class="col-sm-8">
-						<form class="form-horizontal col-sm-10" action="" method="post" enctype="multipart/form-data">
+					<div class="col-sm-7">
+						<form class="form-horizontal col-sm-12 warbel" action="" method="post" enctype="multipart/form-data">
 							<h2 class="text-center">Form Insert E-Book</h2>
 							<br>
 							<div class="form-group">
@@ -83,6 +83,36 @@
 								</div>
 							</div>
 						</form>
+					</div>
+					<div class="col-sm-5">
+						<div class="col-sm-12 warbel">
+							<h2 class="text-center">Ganti Password</h2>
+							<form action="" method="post" class="form-horizontal col-sm-12">
+								<div class="form-group">
+									<label class="control-label col-sm-4">Sandi Lama:</label>
+									<div class="col-sm-8">
+										<input type="password" name="paslam" class="form-control" placeholder="Sandi Lama">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4">Sandi Baru:</label>
+									<div class="col-sm-8">
+										<input type="password" name="pasbar" class="form-control" placeholder="Sandi Baru">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4">Verifikasi Sandi:</label>
+									<div class="col-sm-8">
+										<input type="password" name="verpas" class="form-control" placeholder="Verifikasi Sandi">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-12 text-center">
+										<input type="submit" name="ganpas" value="Ganti" class="btn btn-info">
+									</div>
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
