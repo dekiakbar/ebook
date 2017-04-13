@@ -80,27 +80,69 @@ form.login input[type="submit"]:hover
 tambah
 ========*/
 .gambar {
-    background-image: url('../gambar/tambah.jpg') ;
+    background: cyan;
+    background: linear-gradient(to bottom right, cyan, blue, violet);
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
-    height:100%;
+    min-height:100%;
     -webkit-filter: blur(6px);
     -moz-filter: blur(6px);
     -o-filter: blur(6px);
     -ms-filter: blur(6px);
-    filter: blur(6px);
+    filter: blur(4px);
+    overflow: hidden;
+    position: relative;
 }
 
 .tengah {
-
+    position: absolute;
+    top: 7%;
+    left: 0;
+    right: 0;
+}
+.form-horizontal h2{
+   
 }
 
-.col-sm-12 form {
-    float: none;
-    margin: 0 auto;
+.col-sm-8 form {
+   
 }
 
-.col-sm-12 .col-sm-6 {
+.col-sm-8 .col-sm-10 {
     color: #fff;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 15px;
 }
+
+.form-group .col-sm-12 input{
+    margin-bottom: 10px;
+}
+
+.form-group .col-sm-8 input {
+    background-color: rgba(0,0,0,0.2);
+    color: rgba(255,255,255,0.7);
+}
+
+.form-group .col-sm-8 input[type="checkbox"] {
+    background-color: rgba(0,0,0,0.1);
+    color: rgba(255,255,255,0.7);
+}
+
+.col-sm-8 input.col-sm-8 input::-webkit-input-placeholder {
+    color:    #fff;
+}
+
+.col-sm-8 input:-moz-placeholder {
+    color:    #fff;
+    opacity:  1;
+}
+
+.col-sm-8 input::-moz-placeholder { 
+    color:    #fff;
+    opacity:  1;
+}
+
+.col-sm-8 input:-ms-input-placeholder {
+    color:    #fff;
+}
+

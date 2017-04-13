@@ -16,20 +16,15 @@
 	<script type="text/javascript" src="../js/sweetalert2.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
-	<style type="text/css">
-		body{
-		
-		}
 	</style>
 </head>
 <body>
-	<div class="gambar"></div>
-	<div class="clear"></div>	
+	<div class="gambar"></div>	
 		<div class="container tengah">
 			<div class="content">
 				<div class="row">
-					<div class="col-sm-12">
-						<form class="form-horizontal col-sm-6" action="" method="post" enctype="multipart/form-data">
+					<div class="col-sm-8">
+						<form class="form-horizontal col-sm-10" action="" method="post" enctype="multipart/form-data">
 							<h2 class="text-center">Form Insert E-Book</h2>
 							<br>
 							<div class="form-group">
@@ -52,7 +47,7 @@
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-4">File:</label>
-								<div class="col-sm-6">
+								<div class="col-sm-2">
 									<input class="file" type="file" name="file" required>
 								</div>
 							</div>
@@ -82,15 +77,19 @@
 									<input type="password" name="pass" class="form-control" placeholder="Password" required>
 								</div>
 							</div>
-							<div class="col-sm-12 text-center">
-								<input type="submit" name="tambah" value="Tambah" class="btn btn-primary btn-sm">
+							<div class="form-group">
+								<div class="col-sm-12 text-center">
+									<input type="submit" name="tambah" value="Tambah" class="btn btn-primary">
+								</div>
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
-		</div>
-		</div>
+		</div>	
+</body>
+</html>
+
 	<?php 
 	if (isset($_POST['tambah'])) {
 			$nama 		= $_FILES['file']['name'];
@@ -130,5 +129,3 @@
 			}
 		}	
 	?>
-</body>
-</html>
