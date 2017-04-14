@@ -17,8 +17,26 @@
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
 </head>
-<body>
-	<div class="gambar"></div>	
+<body style="background: linear-gradient(to bottom right, cyan, blue, violet);position: absolute;">
+	<nav class="navbar navbar-default warna" role="navigation">
+	  <div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>    
+	    <a class="navbar-brand" href="#">Brand</a>
+	  </div>
+	  <div class="navbar-collapse collapse">
+	    <ul class="nav navbar-nav navbar-left">
+	        <li><a href="sukses.php">Ebook</a></li>
+	        <li><a href="tambah.php">Tambah</a></li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+	    </ul>
+	  </div>
+	</nav>	
 		<div class="container tengah">
 			<div class="content">
 				<div class="row">
@@ -78,7 +96,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12 text-center">
-									<input type="submit" name="tambah" value="Tambah" class="btn btn-primary">
+									<input type="submit" name="tambah" value="Upload E-Book" class="btn btn-primary">
 								</div>
 							</div>
 						</form>
@@ -99,7 +117,6 @@
 											}else{
 												$data = mysqli_fetch_assoc($nadmin);
 												echo '<label class="control-label col-sm-8">'.$data['nadmin'].'</label>';
-
 											}
 											 ?>
 										</div>
