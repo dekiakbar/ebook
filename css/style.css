@@ -37,8 +37,10 @@ navbar
 }
 
 .navbar-left{
-    margin:0 auto;
+    margin:0 auto 0 -15px;
+
 }
+
 /*=======
 Login 
 =========*/
@@ -66,7 +68,7 @@ p.judul
     letter-spacing: 4px;
 }
 
-form
+.login
 {
     width: 250px;
     margin: 0 auto;
