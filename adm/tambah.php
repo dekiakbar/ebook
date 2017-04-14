@@ -16,7 +16,6 @@
 	<script type="text/javascript" src="../js/sweetalert2.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
-	</style>
 </head>
 <body>
 	<div class="gambar"></div>	
@@ -25,7 +24,7 @@
 				<div class="row">
 					<div class="col-sm-7">
 						<form class="form-horizontal col-sm-12 warbel" action="" method="post" enctype="multipart/form-data">
-							<h2 class="text-center">Insert E-Book</h2>
+							<h2 class="text-center"><span class="glyphicon glyphicon-book"></span> Insert E-Book</h2>
 							<br>
 							<div class="form-group">
 								<label class="control-label col-sm-4">Judul Buku:</label>
@@ -87,12 +86,22 @@
 					<div class="col-sm-5">
 						<div class="row">
 							<div class="col-sm-12 warbel">
-								<h2 class="text-center">Ganti Password</h2>
+								<h2 class="text-center"><span class="glyphicon glyphicon-cog"></span> Ganti Password</h2>
 								<form action="" method="post" class="form-horizontal col-sm-12">
 									<div class="form-group">
-										<label class="control-label col-sm-4">Nama Admin:</label>
+										<label class="control-label col-sm-4"><span class="glyphicon glyphicon-user"></span> Nama Admin:</label>
 										<div class="col-sm-8">
-											<label class="control-label col-sm-8">Testing Admin</label>
+											<?php 
+											$user = $_SESSION['login_user']; 
+											$nadmin = mysqli_query($koneksi, "SELECT * FROM admin WHERE user='$user'");
+											if (mysqli_num_rows($nadmin) == 0) {
+												echo '<label class="control-label col-sm-8">Lu Siapa?</label>';
+											}else{
+												$data = mysqli_fetch_assoc($nadmin);
+												echo '<label class="control-label col-sm-8">'.$data['nadmin'].'</label>';
+
+											}
+											 ?>
 										</div>
 									</div>
 									<div class="form-group">
@@ -124,7 +133,7 @@
 						<br>
 						<div class="row">
 							<div class="col-sm-12 warbel">
-								<h2 class="text-center">Tambah Kategori</h2>
+								<h2 class="text-center"><span class="glyphicon glyphicon-pushpin"></span> Tambah Kategori</h2>
 								<form action="" method="post" class="form-horizontal col-sm-12">
 									<div class="form-group">
 										<label class="control-label col-sm-4">Nama Kategori:</label>
