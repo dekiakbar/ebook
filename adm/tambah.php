@@ -29,11 +29,11 @@
 	  </div>
 	  <div class="navbar-collapse collapse">
 	    <ul class="nav navbar-nav navbar-left">
-	        <li><a href="sukses.php">Ebook</a></li>
-	        <li><a href="tambah.php">Tambah</a></li>
+	        <li><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">
-	      <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+	    	<li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span>Tambah</a></li>
+	      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
 	    </ul>
 	  </div>
 	</nav>	
@@ -103,9 +103,9 @@
 					</div>
 					<div class="col-sm-5">
 						<div class="row">
-							<div class="col-sm-12 warbel">
-								<h2 class="text-center"><span class="glyphicon glyphicon-cog"></span> Ganti Password</h2>
-								<form action="" method="post" class="form-horizontal col-sm-12">
+							<div class="col-sm-12">
+								<form action="" method="post" class="form-horizontal col-sm-12 warbel">
+									<h2 class="text-center"><span class="glyphicon glyphicon-cog"></span> Ganti Password</h2>
 									<div class="form-group">
 										<label class="control-label col-sm-4"><span class="glyphicon glyphicon-user"></span> Nama Admin:</label>
 										<div class="col-sm-8">
@@ -149,9 +149,9 @@
 						</div>
 						<br>
 						<div class="row">
-							<div class="col-sm-12 warbel">
-								<h2 class="text-center"><span class="glyphicon glyphicon-pushpin"></span> Tambah Kategori</h2>
-								<form action="" method="post" class="form-horizontal col-sm-12">
+							<div class="col-sm-12">
+								<form action="" method="post" class="form-horizontal col-sm-12 warbel">
+									<h2 class="text-center"><span class="glyphicon glyphicon-pushpin"></span> Tambah Kategori</h2>
 									<div class="form-group">
 										<label class="control-label col-sm-4">Nama Kategori:</label>
 										<div class="col-sm-8">
