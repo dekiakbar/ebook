@@ -43,8 +43,9 @@
 				<div class="row">
 					<div class="col-sm-7">
 						<form class="form-horizontal col-sm-12 warbel" action="" method="post" enctype="multipart/form-data">
-							<h2 class="text-center"><span class="glyphicon glyphicon-book"></span> Insert E-Book</h2>
-							<br>
+							<div class="form-group">
+								<h2 class="text-center"><span class="glyphicon glyphicon-book"></span> Insert E-Book</h2>
+							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-4">Judul Buku:</label>
 								<div class="col-sm-8">
@@ -106,7 +107,9 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<form action="" method="post" class="form-horizontal col-sm-12 warbel">
-									<h2 class="text-center"><span class="glyphicon glyphicon-cog"></span> Ganti Password</h2>
+									<div class="form-group">
+										<h2 class="text-center"><span class="glyphicon glyphicon-cog"></span> Ganti Password</h2>
+									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-4"><span class="glyphicon glyphicon-user"></span> Nama Admin:</label>
 										<div class="col-sm-8">
@@ -152,7 +155,9 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<form action="" method="post" class="form-horizontal col-sm-12 warbel">
-									<h2 class="text-center"><span class="glyphicon glyphicon-pushpin"></span> Tambah Kategori</h2>
+									<div class="form-group">
+										<h2 class="text-center"><span class="glyphicon glyphicon-pushpin"></span> Tambah Kategori</h2>
+									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-4">Nama Kategori:</label>
 										<div class="col-sm-8">
