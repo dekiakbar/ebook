@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
+	<link rel="shortcut icon" href="../gambar/ssd.ico" />
 </head>
 <body style="background: linear-gradient(to bottom , purple, violet);position: absolute;">
 	<nav class="navbar navbar-default warna" role="navigation">
@@ -29,8 +30,8 @@
 		        <li class="active"><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
-		    	<li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span>Tambah</a></li>
-		      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+		    	<li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span> Update</a></li>
+		      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 		    </ul>
 		</div>
 	</nav>
@@ -63,7 +64,7 @@
                             <td>'.$data['kat'].'</td>
 							<td>'.$data['tgl'].'</td>
                             <td><span class="label label-info">'.$data['donasi'].'</span></td>
-                            <td>'.$data['ukuran'].'</td>
+                            <td>'.konversi($data['ukuran'],0).'</td>
 							<td>
 								
 								<a href="edit.php?nik='.$data['id'].'" title="Edit Ebook" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
@@ -82,4 +83,10 @@
 </body>
 </html>
 
-
+	<?php 
+	function konversi($bytes, $decimals = 2) {
+    	$factor = floor((strlen($bytes) - 1) / 3);
+    	if ($factor > 0) $sz = 'KMGT';
+    	return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor - 1] . 'B';
+	}
+	?>
