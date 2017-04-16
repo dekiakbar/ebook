@@ -14,11 +14,30 @@
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
 </head>
-<body>
+<body style="background: linear-gradient(to bottom , purple, violet);position: absolute;">
+	<nav class="navbar navbar-default warna" role="navigation">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    </button>    
+		</div>
+		<div class="navbar-collapse collapse">
+		    <ul class="nav navbar-nav navbar-left">
+		    	<li><a href="#"><span class="glyphicon glyphicon-home"></span> Preview</a></li>
+		        <li class="active"><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
+		    </ul>
+		    <ul class="nav navbar-nav navbar-right">
+		    	<li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span>Tambah</a></li>
+		      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+		    </ul>
+		</div>
+	</nav>
 	<div class="container">
 		<div class="content">
 			<div class="table-responsive">
-				<table class="table table-striped table-hover">
+				<table class="table text-center">
 					<tr>
 						<th>No</th>
 						<th>Judul</th>
@@ -39,7 +58,7 @@
 						echo '
 						<tr>
 							<td>'.$no.'</td>
-							<td><a href="profile.php?nik="><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
+							<td><a href="profile.php?nik="><span class="glyphicon glyphicon-book" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
                             <td>'.$data['nmp'].'</td>
                             <td>'.$data['kat'].'</td>
 							<td>'.$data['tgl'].'</td>

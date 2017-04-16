@@ -146,3 +146,29 @@ tambah
     color: rgba(255,255,255,0.7);
 }
 
+/*=========
+admin
+===========*/
+
+tr {
+    background-color: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+tr:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+tr td a{
+    color: white;
+    text-decoration: none;
+}
+
+tr td a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+tr th{
+    text-align: center;
+}
