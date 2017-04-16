@@ -228,7 +228,9 @@
 					while ($data = mysqli_fetch_assoc($adm)) {
 						$nadmin = $data['nadmin'];
 						if ($data['pass'] == $paslam) {
-							$inpas = mysqli_query($koneksi, "INSERT INTO admin(user, pas, nadmin) VALUES ('$user', '$pasbar', '$nadmin')") or die('Error:'.mysqli_error($koneksi));
+							$pasen = md5($pasbar);
+							$inpas = mysqli_query($koneksi, "UPDATE admin SET user='$user', pass='$pasen' WHERE nadmin='$nadmin'") or die('Error:'.mysqli_error($koneksi));
+							echo "<script>swal('Berhasil','Kata Sandi Berhasil Diganti','success');</script>";
 						}else{
 							echo "<script>swal('Error','Kata Sandi Lama Salah!','error');</script>";
 						}
