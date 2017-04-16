@@ -216,6 +216,29 @@
 			}else{
 				echo "<script>swal('Error','Buku Sudah Ada','error');</script>";
 			}
+		}elseif (isset($_POST['ganpas'])) {
+			$user 		= $_SESSION['login_user'];
+			$paslam 	= md5($_POST['paslam']);
+			$pasbar 	= $_POST['pasbar'];
+			$verpas		= $_POST['verpas'];
+
+			$adm		= mysqli_query($koneksi,"SELECT * FROM admin WHERE user='$user'");
+			if ($pasbar == $verpas) {
+				if (mysqli_num_rows($adm) == 1) {
+					while ($data = mysqli_fetch_assoc($adm)) {
+						$nadmin = $data['nadmin'];
+						if ($data['pass'] == $paslam) {
+							$inpas = mysqli_query($koneksi, "INSERT INTO admin(user, pas, nadmin) VALUES ('$user', '$pasbar', '$nadmin')") or die('Error:'.mysqli_error($koneksi));
+						}else{
+							echo "<script>swal('Error','Kata Sandi Lama Salah!','error');</script>";
+						}
+					}
+				}else{
+					echo "<script>swal('Error','Nama Admin Tidak Diketahui','error');</script>";
+				}
+			}else{
+				echo "<script>swal('Error','Ulangi Kata Sandi Baru','error');</script>";
+			}
 		}elseif (isset($_POST['tamkat'])) {
 			$katbar = $_POST['katbar'];
 
