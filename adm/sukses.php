@@ -50,18 +50,29 @@
 						<th>Menu</th>
 					</tr>
 					<?php 
-					$sql = mysqli_query($koneksi,"SELECT * FROM buku ORDER BY jdl ASC");
+					$sql 	= mysqli_query($koneksi,"SELECT * FROM buku ORDER BY jdl ASC");
 					if (mysqli_num_rows($sql) == 0) {
 							echo '<tr><td colspan="8">Data Masih Kosong.</td></tr>';
 					}else{
 						$no=1;
 						while($data = mysqli_fetch_assoc($sql)){
+						$datkat 	= explode(',',$data['kat']);
 						echo '
 						<tr>
 							<td>'.$no.'</td>
 							<td><a href="'.$data['link'].'"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
                             <td>'.$data['nmp'].'</td>
-                            <td>'.$data['kat'].'</td>
+                            <td>';
+                        
+                        foreach ($datkat as $pishkat) {
+                        	$ktgri 	= mysqli_query($koneksi,"SELECT kategori FROM kate WHERE id='$pishkat'");
+                        	while ($ambil  = mysqli_fetch_assoc($ktgri)) {
+                        		echo '<span class="label label-info">'.$ambil['kategori'].'</span> ';
+                        	}
+                        }
+                            
+                        echo'
+                        	</td>
 							<td>'.$data['tgl'].'</td>
                             <td><span class="label label-info">'.$data['donasi'].'</span></td>
                             <td>'.konversi($data['ukuran'],1).'</td>
