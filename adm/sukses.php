@@ -13,9 +13,18 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
-	<link rel="shortcut icon" href="../gambar/ssd.ico" />
+	<link rel="shortcut icon" href="../gambar/ssd.ico">
+	<style type="text/css">
+		body{
+			background: linear-gradient(to bottom , purple, magenta);
+			background-position: center center;
+			background-repeat:  no-repeat;
+			background-attachment: fixed;
+			background-size:  cover;
+		}
+	</style>
 </head>
-<body style="background: linear-gradient(to bottom , purple, violet);position: absolute;">
+<body>
 	<nav class="navbar navbar-default warna" role="navigation">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -74,7 +83,7 @@
                         echo'
                         	</td>
 							<td>'.$data['tgl'].'</td>
-                            <td><span class="label label-info">'.$data['donasi'].'</span></td>
+                            <td><span class="label label-success">'.$data['donasi'].'</span></td>
                             <td>'.konversi($data['ukuran'],1).'</td>
 							<td>
 								
