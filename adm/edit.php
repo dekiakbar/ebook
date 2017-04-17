@@ -2,10 +2,10 @@
 include ('session.php');
 include ('../kon.php');
  
- 	if (isset($_GET['nik'])) {
-		$id 		= $_GET['nik'];
+ 	if (isset($_GET['nib'])) {
+		$id 		= $_GET['nib'];
 		$ambilbuku 	= mysqli_query($koneksi,"SELECT * FROM buku WHERE id='$id'");
-		$data = mysqli_fetch_assoc($ambilbuku);
+		$datadb = mysqli_fetch_assoc($ambilbuku);
 	}
 ?>
 
@@ -31,68 +31,125 @@ include ('../kon.php');
 	</style>
  </head>
  <body>
- 
+ 	<nav class="navbar navbar-default warna" role="navigation">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    </button>    
+		</div>
+		<div class="navbar-collapse collapse">
+		    <ul class="nav navbar-nav navbar-left">
+		    	<li><a href="#"><span class="glyphicon glyphicon-home"></span> Preview</a></li>
+		        <li><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
+		    </ul>
+		    <ul class="nav navbar-nav navbar-right">
+		    	<li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span>Tambah</a></li>
+		      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+		    </ul>
+		</div>
+	</nav>
  	<div class="container">
  		<div class="content">
- 			<form class="form-horizontal col-sm-12 warbel" action="" method="post" enctype="multipart/form-data">
-				<div class="form-group">
-					<h2 class="text-center"><span class="glyphicon glyphicon-book"></span> Insert E-Book</h2>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-4">Judul Buku:</label>
-					<div class="col-sm-8">
-						<input type="text" name="judul" value="<?php echo $data['jdl']; ?>" class="form-control" placeholder="Masukan Judul Buku" required>
+ 			<div class="col-sm-8">
+ 				<form class="form-horizontal col-sm-12 warbel" action="" method="post" enctype="multipart/form-data">
+					<div class="form-group">
+						<h2 class="text-center"><span class="glyphicon glyphicon-book"></span> Update E-Book</h2>
 					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-4">Nama Pengarang:</label>
-					<div class="col-sm-8">
-						<input type="text" name="pengarang" value="<?php echo $data['nmp']; ?>" class="form-control" placeholder="Masukan Nama Pengarang" required>
+					<div class="form-group">
+						<label class="control-label col-sm-4">Judul Buku:</label>
+						<div class="col-sm-8">
+							<input type="text" name="judul" class="form-control" placeholder="Masukan Judul Buku" required>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-4">Donasi:</label>
-					<div class="col-sm-8">
-						<input type="text" name="donasi" <?php echo $data['donasi']; ?> class="form-control" placeholder="Nama Penyumbang Buku" required>
+					<div class="form-group">
+						<label class="control-label col-sm-4">Nama Pengarang:</label>
+						<div class="col-sm-8">
+							<input type="text" name="pengarang" class="form-control" placeholder="Masukan Nama Pengarang" required>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-4">File:</label>
-					<div class="col-sm-2">
-						<input class="file" type="file" name="file" required>
+					<div class="form-group">
+						<label class="control-label col-sm-4">Donasi:</label>
+						<div class="col-sm-8">
+							<input type="text" name="donasi" class="form-control" placeholder="Nama Penyumbang Buku" required>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-4">Kategori:</label>
-					<div class="col-sm-8 text-center">
-						<?php 
-						$dbkate	= mysqli_query($koneksi,"SELECT * FROM kate");
-							if (mysqli_num_rows($dbkate) == 0) {
-								echo "<script>swal('Error','Belum ada kategori','error');</script>
-										<h4>Kategori Kosong</h4>";
-							}else{
-								while ($data = mysqli_fetch_assoc($dbkate)) {
-									echo '
-										<label class="checkbox-inline">
-										<input type="checkbox" name="kat[]" value="'.$data['id'].'"><span class="label label-info">'.$data['kategori'].'</span>
-											</label>';
-										}
-							}
-						?>
+					<div class="form-group">
+						<label class="control-label col-sm-4">File:</label>
+						<div class="col-sm-2">
+							<input class="file" type="file" name="file" required>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-4">Password</label>
-					<div class="col-sm-8">
-						<input type="password" name="pass" class="form-control" placeholder="Password" required>
+					<div class="form-group">
+						<label class="control-label col-sm-4">Kategori:</label>
+						<div class="col-sm-8 text-center">
+							<?php 
+							$dbkate	= mysqli_query($koneksi,"SELECT * FROM kate");
+								if (mysqli_num_rows($dbkate) == 0) {
+									echo "<script>swal('Error','Belum ada kategori','error');</script>
+											<h4>Kategori Kosong</h4>";
+								}else{
+									while ($data = mysqli_fetch_assoc($dbkate)) {
+										echo '
+											<label class="checkbox-inline">
+											<input type="checkbox" name="kat[]" value="'.$data['id'].'"><span class="label label-info">'.$data['kategori'].'</span>
+												</label>';
+											}
+								}
+							?>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-12 text-center">
-						<input type="submit" name="apdet" value="Update E-Book" class="btn btn-primary">
+					<div class="form-group">
+						<label class="control-label col-sm-4">Password</label>
+						<div class="col-sm-8">
+							<input type="password" name="pass" class="form-control" placeholder="Password" required>
+						</div>
 					</div>
-				</div>
-			</form>
+					<div class="form-group">
+						<div class="col-sm-12 text-center">
+							<input type="submit" name="apdet" value="Update E-Book" class="btn btn-primary">
+						</div>
+					</div>
+				</form>
+ 			</div>
+ 			<div class="col-sm-4">
+ 				<form class="form-horizontal col-sm-12 warbel">
+ 					<div class="form-group">
+						<h2 class="text-center"><span class="glyphicon glyphicon-book"></span> Data Lama</h2>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4">Judul Buku:</label>
+						<div class="col-sm-8">
+							<label class="control-label"><?php echo $datadb['jdl']; ?></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4">Pengarang:</label>
+						<div class="col-sm-8">
+							<label class="control-label"><?php echo $datadb['nmp']; ?></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4">Tangal:</label>
+						<div class="col-sm-8">
+							<label class="control-label"><?php echo $datadb['tgl']; ?></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4">Donasi:</label>
+						<div class="col-sm-8">
+							<label class="control-label"><?php echo $datadb['donasi']; ?></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4">Kategori:</label>
+						<div class="col-sm-8">
+							<label class="control-label"><?php echo $datadb['kat']; ?></label>
+						</div>
+					</div>
+ 				</form>
+ 			</div>
  		</div>
  	</div>
  </body>
