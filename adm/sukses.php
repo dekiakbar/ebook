@@ -59,12 +59,12 @@
 						echo '
 						<tr>
 							<td>'.$no.'</td>
-							<td><a href="profile.php?nik="><span class="glyphicon glyphicon-book" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
+							<td><a href="'.$data['link'].'"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
                             <td>'.$data['nmp'].'</td>
                             <td>'.$data['kat'].'</td>
 							<td>'.$data['tgl'].'</td>
                             <td><span class="label label-info">'.$data['donasi'].'</span></td>
-                            <td>'.konversi($data['ukuran'],0).'</td>
+                            <td>'.konversi($data['ukuran'],1).'</td>
 							<td>
 								
 								<a href="edit.php?nik='.$data['id'].'" title="Edit Ebook" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
