@@ -22,7 +22,7 @@ include ('../kon.php');
 	<script type="text/javascript" href="../js/jquery.js"></script>
 	<style type="text/css">
 		body{
-			background: linear-gradient(to bottom right, cyan, blue, skyblue);
+			background: linear-gradient(to bottom left, magenta, blue);
 			background-position: center center;
 			background-repeat:  no-repeat;
 			background-attachment: fixed;
@@ -55,7 +55,7 @@ include ('../kon.php');
  			<div class="col-sm-8">
  				<form class="form-horizontal col-sm-12 warbel" action="" method="post" enctype="multipart/form-data">
 					<div class="form-group">
-						<h2 class="text-center"><span class="glyphicon glyphicon-book"></span> Update E-Book</h2>
+						<h2 class="text-center"><span class="glyphicon glyphicon-retweet"></span> Update E-Book</h2>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-4">Judul Buku:</label>
@@ -116,7 +116,7 @@ include ('../kon.php');
  			<div class="col-sm-4">
  				<form class="form-horizontal col-sm-12 warbel">
  					<div class="form-group">
-						<h2 class="text-center"><span class="glyphicon glyphicon-book"></span> Data Lama</h2>
+						<h2 class="text-center"><span class="glyphicon glyphicon-hdd"></span> Data Lama</h2>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-4">Judul Buku:</label>
@@ -144,8 +144,18 @@ include ('../kon.php');
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-4">Kategori:</label>
-						<div class="col-sm-8">
-							<label class="control-label"><?php echo $datadb['kat']; ?></label>
+						<div class="col-sm-8 text-center">
+							<label class="label-inline">
+								<?php 
+									$datkat 	= explode(',',$datadb['kat']);
+									foreach ($datkat as $pishkat) {
+		                        	$ktgri 	= mysqli_query($koneksi,"SELECT kategori FROM kate WHERE id='$pishkat'");
+		                        	while ($ambil  = mysqli_fetch_assoc($ktgri)) {
+		                        		echo '<span class="label label-info">'.$ambil['kategori'].'</span> ';
+			                        	}
+			                        }
+								?>
+							</label>
 						</div>
 					</div>
  				</form>

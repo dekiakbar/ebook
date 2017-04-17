@@ -67,7 +67,7 @@
 						while($data = mysqli_fetch_assoc($sql)){
 						$datkat 	= explode(',',$data['kat']);
 						echo '
-						<tr>
+							<tr>
 							<td>'.$no.'</td>
 							<td><a href="'.$data['link'].'"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
                             <td>'.$data['nmp'].'</td>
