@@ -87,7 +87,7 @@
                             <td>'.konversi($data['ukuran'],1).'</td>
 							<td>
 								
-								<a href="edit.php?nik='.$data['id'].'" title="Edit Ebook" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+								<a href="edit.php?nib='.$data['id'].'" title="Edit Ebook" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 								<a href="index.php?aksi=delete&nik='.$data['id'].'" title="Hapus Ebook" onclick="return confirm(\'Anda yakin akan menghapus E-Book '.$data['jdl'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>
