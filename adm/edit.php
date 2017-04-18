@@ -18,19 +18,13 @@ include ('../kon.php');
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<script type="text/javascript" href="../js/bootstrap.min.js"></script>
-	<script type="text/javascript" href="../js/jquery.js"></script>
-	<style type="text/css">
-		body{
-			background: linear-gradient(to bottom left, magenta, blue);
-			background-position: center center;
-			background-repeat:  no-repeat;
-			background-attachment: fixed;
-			background-size:  cover;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="../css/sweetalert2.css">
+	<script type="text/javascript" src="../js/sweetalert2.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<link rel="shortcut icon" href="../gambar/ssd.ico">
  </head>
- <body>
+ <body class="bodi1">
  	<nav class="navbar navbar-default warna" role="navigation">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

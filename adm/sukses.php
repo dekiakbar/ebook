@@ -11,20 +11,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/sweetalert2.css">
+	<script type="text/javascript" src="../js/sweetalert2.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<link rel="shortcut icon" href="../gambar/ssd.ico">
-	<style type="text/css">
-		body{
-			background: linear-gradient(to bottom , purple, magenta);
-			background-position: center center;
-			background-repeat:  no-repeat;
-			background-attachment: fixed;
-			background-size:  cover;
-		}
-	</style>
+	<script type="text/javascript" src="../js/manual.js"></script>
+	<link rel="shortcut icon" href="../gambar/ssd.ico">
 </head>
-<body>
+
+<body class="bodi3">
 	<nav class="navbar navbar-default warna" role="navigation">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -88,7 +84,7 @@
 							<td>
 								
 								<a href="edit.php?nib='.$data['id'].'" title="Edit Ebook" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="index.php?aksi=delete&nik='.$data['id'].'" title="Hapus Ebook" onclick="return confirm(\'Anda yakin akan menghapus E-Book '.$data['jdl'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								<a href="sukses.php?del=delete&nib='.$data['id'].'" title="Hapus Ebook" onclick="return konfirdel()" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>
 						';
@@ -109,4 +105,23 @@
     	if ($factor > 0) $sz = 'KMGT';
     	return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor - 1] . 'B';
 	}
+	
+	if(isset($_GET['del']) == 'delete'){
+		$id 		= $_GET['nib'];
+		$datbuk 	= mysqli_query($koneksi, "SELECT * FROM buku WHERE id='$id'");
+		$linkbuk 	= mysqli_fetch_assoc($datbuk);
+		if(mysqli_num_rows($datbuk) == 0){
+				echo "<script>swal('Gagal','Data Tidak Diketahui','error');</script>";
+		}else{
+			$delete = mysqli_query($koneksi, "DELETE FROM buku WHERE id='$id'");
+			if($delete){
+				unlink($linkbuk['link']);
+				echo "<script>swal('Berhasil','Ebook Berhasil Dihapus','success');</script>";
+			}else{
+				echo "<script>swal('Gagal','Data Tidak Terhapus','error');</script>";
+			}
+		}
+	}
 	?>
+
+

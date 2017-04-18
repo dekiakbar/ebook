@@ -17,17 +17,8 @@
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<link rel="shortcut icon" href="../gambar/ssd.ico">
-	<style type="text/css">
-		body{
-			background: linear-gradient(to bottom right, cyan, blue, skyblue);
-			background-position: center center;
-			background-repeat:  no-repeat;
-			background-attachment: fixed;
-			background-size:  cover;
-		}
-	</style>
 </head>
-<body>
+<body class="bodi2">
 	<nav class="navbar navbar-default warna" role="navigation">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
