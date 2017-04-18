@@ -16,8 +16,8 @@
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<link rel="shortcut icon" href="../gambar/ssd.ico">
-	<script type="text/javascript" src="../js/manual.js"></script>
 	<link rel="shortcut icon" href="../gambar/ssd.ico">
+	
 </head>
 
 <body class="bodi3">
@@ -84,7 +84,7 @@
 							<td>
 								
 								<a href="edit.php?nib='.$data['id'].'" title="Edit Ebook" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="sukses.php?del=delete&nib='.$data['id'].'" title="Hapus Ebook" onclick="return konfirdel()" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								<a href="sukses.php?del=delete&nib='.$data['id'].'" title="Hapus Ebook" class="btn btn-danger btn-sm hapus"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>
 						';
@@ -96,6 +96,33 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$(document).ready(function() { 
+		$(".hapus").on('click',function(){ 
+		swal({	title: "Apakah anda yakin akan menghapus data ?", 
+				type: "warning", 
+				showCancelButton: true, 
+				confirmButtonColor: "#DD6B55", 
+				confirmButtonText: "Hapus", 
+				cancelButtonText: "Batal", 
+				closeOnConfirm: false 
+			},function(response){
+				if(response == true){ 
+				$url = 'sukses.php?del=delete&nib=<?php echo $data['id'];?>'; 
+				$data = { args : 'hapus' } 
+				$.get($url, $data).done(function(){ 
+				swal("Data !", "Terhapus..!"); 
+				setTimeout(keluar, 1500) }); 
+				function keluar() { 
+				window.location.href = "sukses.php"; 
+				} 
+				} 
+		}); 
+		return false; 
+		}); 
+	}); //end jquery doc ready
+
+	</script>
 </body>
 </html>
 
@@ -117,6 +144,7 @@
 			if($delete){
 				unlink($linkbuk['link']);
 				echo "<script>swal('Berhasil','Ebook Berhasil Dihapus','success');</script>";
+				header("location:sukses.php");
 			}else{
 				echo "<script>swal('Gagal','Data Tidak Terhapus','error');</script>";
 			}
