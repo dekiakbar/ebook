@@ -12,9 +12,9 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/sweetalert2.css">
-    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../js/sweetalert2.min.js"></script>
+    <script src='http://code.jquery.com/jquery-2.1.1.js'></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="../gambar/ssd.ico">
    
 </head>
@@ -117,8 +117,8 @@
 					swal("Batal", "Data batal di hapus!", "error");
 				}
 			  });
-			});
-</script>
+		});
+	</script>
 </body>
 </html>
  
