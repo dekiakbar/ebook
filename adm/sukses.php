@@ -1,155 +1,149 @@
 <?php
-	include("session.php");
-	include ('../kon.php');
+    include("session.php");
+    include ('../kon.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Admin Page</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<link rel="stylesheet" type="text/css" href="../css/sweetalert2.css">
-	<script type="text/javascript" src="../js/sweetalert2.min.js"></script>
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/jquery.js"></script>
-	<link rel="shortcut icon" href="../gambar/ssd.ico">
-	<link rel="shortcut icon" href="../gambar/ssd.ico">
-	
+    <title>Admin Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/sweetalert2.css">
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/sweetalert2.min.js"></script>
+    <link rel="shortcut icon" href="../gambar/ssd.ico">
+   
 </head>
-
+ 
 <body class="bodi3">
-	<nav class="navbar navbar-default warna" role="navigation">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>
-		    </button>    
-		</div>
-		<div class="navbar-collapse collapse">
-		    <ul class="nav navbar-nav navbar-left">
-		    	<li><a href="#"><span class="glyphicon glyphicon-home"></span> Preview</a></li>
-		        <li class="active"><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
-		    </ul>
-		    <ul class="nav navbar-nav navbar-right">
-		    	<li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span> Update</a></li>
-		      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-		    </ul>
-		</div>
-	</nav>
-	<div class="container">
-		<div class="content">
-			<div class="table-responsive">
-				<table class="table text-center">
-					<tr>
-						<th>No</th>
-						<th>Judul</th>
-						<th>Pengarang</th>
-						<th>Kategori</th>
-						<th>Tanggal</th>
-						<th>Donasi</th>
-						<th>Ukuran</th>
-						<th>Menu</th>
-					</tr>
-					<?php 
-					$sql 	= mysqli_query($koneksi,"SELECT * FROM buku ORDER BY jdl ASC");
-					if (mysqli_num_rows($sql) == 0) {
-							echo '<tr><td colspan="8">Data Masih Kosong.</td></tr>';
-					}else{
-						$no=1;
-						while($data = mysqli_fetch_assoc($sql)){
-						$datkat 	= explode(',',$data['kat']);
-						echo '
-							<tr>
-							<td>'.$no.'</td>
-							<td><a href="'.$data['link'].'"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
+    <nav class="navbar navbar-default warna" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>    
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#"><span class="glyphicon glyphicon-home"></span> Preview</a></li>
+                <li class="active"><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span> Update</a></li>
+                <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <div class="table-responsive">
+                <table class="table text-center">
+                    <tr>
+                        <th>No</th>
+                        <th>Judul</th>
+                        <th>Pengarang</th>
+                        <th>Kategori</th>
+                        <th>Tanggal</th>
+                        <th>Donasi</th>
+                        <th>Ukuran</th>
+                        <th>Menu</th>
+                    </tr>
+                    <?php
+                    $sql    = mysqli_query($koneksi,"SELECT * FROM buku ORDER BY jdl ASC");
+                    if (mysqli_num_rows($sql) == 0) {
+                            echo '<tr><td colspan="8">Data Masih Kosong.</td></tr>';
+                    }else{
+                        $no=1;
+                        while($data = mysqli_fetch_assoc($sql)){
+                        $datkat     = explode(',',$data['kat']);
+                        echo '
+                            <tr>
+                            <td>'.$no.'</td>
+                            <td><a href="'.$data['link'].'"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
                             <td>'.$data['nmp'].'</td>
                             <td>';
-                        
+                       
                         foreach ($datkat as $pishkat) {
-                        	$ktgri 	= mysqli_query($koneksi,"SELECT kategori FROM kate WHERE id='$pishkat'");
-                        	while ($ambil  = mysqli_fetch_assoc($ktgri)) {
-                        		echo '<span class="label label-info">'.$ambil['kategori'].'</span> ';
-                        	}
+                            $ktgri  = mysqli_query($koneksi,"SELECT kategori FROM kate WHERE id='$pishkat'");
+                            while ($ambil  = mysqli_fetch_assoc($ktgri)) {
+                                echo '<span class="label label-info">'.$ambil['kategori'].'</span> ';
+                            }
                         }
-                            
+                           
                         echo'
-                        	</td>
-							<td>'.$data['tgl'].'</td>
+                            </td>
+                            <td>'.$data['tgl'].'</td>
                             <td><span class="label label-success">'.$data['donasi'].'</span></td>
                             <td>'.konversi($data['ukuran'],1).'</td>
-							<td>
-								
-								<a href="edit.php?nib='.$data['id'].'" title="Edit Ebook" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="sukses.php?del=delete&nib='.$data['id'].'" title="Hapus Ebook" class="btn btn-danger btn-sm hapus"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-							</td>
-						</tr>
-						';
-						$no++;
-						}
-					} 
-					?>
-				</table>
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript">
-		$(document).ready(function() { 
-		$(".hapus").on('click',function(){ 
-		swal({	title: "Apakah anda yakin akan menghapus data ?", 
-				type: "warning", 
-				showCancelButton: true, 
-				confirmButtonColor: "#DD6B55", 
-				confirmButtonText: "Hapus", 
-				cancelButtonText: "Batal", 
-				closeOnConfirm: false 
-			},function(response){
-				if(response == true){ 
-				$url = 'sukses.php?del=delete&nib=<?php echo $data['id'];?>'; 
-				$data = { args : 'hapus' } 
-				$.get($url, $data).done(function(){ 
-				swal("Data !", "Terhapus..!"); 
-				setTimeout(keluar, 1500) }); 
-				function keluar() { 
-				window.location.href = "sukses.php"; 
-				} 
-				} 
-		}); 
-		return false; 
-		}); 
-	}); //end jquery doc ready
-
-	</script>
+                            <td>
+                               
+                                <a href="edit.php?nib='.$data['id'].'" title="Edit Ebook" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                <a href="javascript:;" data-id="'.$data['id'].'" id="delbuk" title="Hapus Ebook" class="btn btn-danger btn-sm hapus"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                            </td>
+                        </tr>
+                        ';
+                        $no++;
+                        }
+                    }
+                    ?>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).on('click','#delbuk',function(){
+			var id = $(this).data('id');
+			swal({
+			title: "Anda yakin?",
+			text: "ingin menghapus data ini?",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#4CAF50",
+			confirmButtonText: "Ya, Hapus!",
+			cancelButtonText: "Tidak, Batal!",
+			closeOnConfirm: false,
+			closeOnCancel: false
+			}, function(isConfirm){
+				if(isConfirm){
+					$.post('sukses.php?del=delete&nib=',{id:id},function(a){
+					window.location.replace("sukses.php");
+				});
+				} else {
+					swal("Batal", "Data batal di hapus!", "error");
+				}
+			  });
+			});
+</script>
 </body>
 </html>
-
-	<?php 
-	function konversi($bytes, $decimals = 2) {
-    	$factor = floor((strlen($bytes) - 1) / 3);
-    	if ($factor > 0) $sz = 'KMGT';
-    	return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor - 1] . 'B';
-	}
-	
-	if(isset($_GET['del']) == 'delete'){
-		$id 		= $_GET['nib'];
-		$datbuk 	= mysqli_query($koneksi, "SELECT * FROM buku WHERE id='$id'");
-		$linkbuk 	= mysqli_fetch_assoc($datbuk);
-		if(mysqli_num_rows($datbuk) == 0){
-				echo "<script>swal('Gagal','Data Tidak Diketahui','error');</script>";
-		}else{
-			$delete = mysqli_query($koneksi, "DELETE FROM buku WHERE id='$id'");
-			if($delete){
-				unlink($linkbuk['link']);
-				echo "<script>swal('Berhasil','Ebook Berhasil Dihapus','success');</script>";
-				header("location:sukses.php");
-			}else{
-				echo "<script>swal('Gagal','Data Tidak Terhapus','error');</script>";
-			}
-		}
-	}
-	?>
-
-
+ 
+    <?php
+    function konversi($bytes, $decimals = 2) {
+        $factor = floor((strlen($bytes) - 1) / 3);
+        if ($factor > 0) $sz = 'KMGT';
+        return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor - 1] . 'B';
+    }
+   
+    if(isset($_POST['del']) == 'delete'){
+        $id         = $_POST['nib'];
+        $datbuk     = mysqli_query($koneksi, "SELECT * FROM buku WHERE id='$id'");
+        $linkbuk    = mysqli_fetch_assoc($datbuk);
+        if(mysqli_num_rows($datbuk) == 0){
+                echo "<script>swal('Gagal','Data Tidak Diketahui','error');</script>";
+        }else{
+            $delete = mysqli_query($koneksi, "DELETE FROM buku WHERE id='$id'");
+            if($delete){
+                unlink($linkbuk['link']);
+                echo "<script>swal('Berhasil','Ebook Berhasil Dihapus','success');</script>";
+                header("location:sukses.php");
+            }else{
+                echo "<script>swal('Gagal','Data Tidak Terhapus','error');</script>";
+            }
+        }
+    }
+    ?>
