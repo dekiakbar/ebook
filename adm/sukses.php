@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/sweetalert2.css">
-    <script src='http://code.jquery.com/jquery-2.1.1.js'></script>
+    <script src='../js/jquery-3.2.1.min.js'></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="../gambar/ssd.ico">
@@ -99,25 +99,25 @@
         $(document).on('click','#delbuk',function(){
 			var id = $(this).data('id');
 			swal({
-			title: "Anda yakin?",
-			text: "ingin menghapus data ini?",
-			type: "warning",
-			showCancelButton: true,
-			confirmButtonColor: "#4CAF50",
-			confirmButtonText: "Ya, Hapus!",
-			cancelButtonText: "Tidak, Batal!",
-			closeOnConfirm: false,
-			closeOnCancel: false
-			}, function(isConfirm){
-				if(isConfirm){
-					$.post('sukses.php?del=delete&nib=',{id:id},function(a){
-					window.location.replace("sukses.php");
-				});
-				} else {
-					swal("Batal", "Data batal di hapus!", "error");
-				}
-			  });
+		    title: "Anda yakin?",
+		    text: "ingin menghapus data ini?",
+		    type: "warning",
+		    showCancelButton: true,
+		    confirmButtonColor: "#4CAF50",
+		    confirmButtonText: "Ya, Hapus!",
+		    cancelButtonText: "Tidak, Batal!",
+		    closeOnConfirm: false,
+		    closeOnCancel: false
+		}).then(function(isConfirm) {
+		    if(isConfirm) {
+		        $.get('sukses.php?del=delete&', {
+		            nib:id
+		        });
+		    } else {
+		        swal("Batal", "Data batal di hapus!", "error");
+		    }
 		});
+	});
 	</script>
 </body>
 </html>
@@ -129,8 +129,8 @@
         return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor - 1] . 'B';
     }
    
-    if(isset($_POST['del']) == 'delete'){
-        $id         = $_POST['nib'];
+    if(isset($_GET['del']) == 'delete'){
+        $id         = $_GET['nib'];
         $datbuk     = mysqli_query($koneksi, "SELECT * FROM buku WHERE id='$id'");
         $linkbuk    = mysqli_fetch_assoc($datbuk);
         if(mysqli_num_rows($datbuk) == 0){
