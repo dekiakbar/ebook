@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/sweetalert2.css">
-    <script src='../js/jquery-3.2.1.min.js'></script>
+    <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="../gambar/ssd.ico">
@@ -112,6 +112,10 @@
 		    if(isConfirm) {
 		        $.get('sukses.php?del=delete&', {
 		            nib:id
+		        }).done(function(){
+		        swal('Berhasil','Ebook Berhasil Dihapus','success');
+		        setTimeout(10000);
+		        location.reload(true);
 		        });
 		    } else {
 		        swal("Batal", "Data batal di hapus!", "error");
