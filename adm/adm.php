@@ -33,9 +33,7 @@
 </html>
 
 <?php 
-include "../kon.php";
-include 'session.php';
-session();
+include ("../kon.php");
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -47,9 +45,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	$banding = mysqli_num_rows($data);
 
 	if($banding == 1) {
-         $browser = $_SERVER['HTTP_USER_AGENT'];
+		 $browser			= $_SERVER['HTTP_USER_AGENT'];
          $_SESSION['user']	= $username;
-         $_SESSION['login'] = hash('sha512', $password . $browser);
+         $_SESSION['login'] = hash('sha512', $browser.$password);
          header ('location:sukses.php');
       }else{
          echo "<script>
