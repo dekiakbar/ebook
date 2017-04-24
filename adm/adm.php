@@ -46,7 +46,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	$banding = mysqli_num_rows($data);
 
 	if($banding == 1) {
-         $_SESSION['login_user'] = $username;
+         $browser = $_SERVER['HTTP_USER_AGENT'];
+         $_SESSION['user']	= $username;
+         $_SESSION['login'] = hash('sha512', $password . $browser);
          header ('location:sukses.php');
       }else{
          echo "<script>
