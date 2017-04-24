@@ -33,8 +33,9 @@
 </html>
 
 <?php 
-include ("../kon.php");
-session_start();
+include "../kon.php";
+include 'session.php';
+session();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
