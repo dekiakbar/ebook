@@ -202,3 +202,11 @@ sukses
     background-attachment: fixed;
     background-size:  cover;
 }
+
+/*========
+eror
+==========*/
+.tengh {
+    float: none;
+    margin: 0 auto;
+}
