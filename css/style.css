@@ -216,10 +216,39 @@ eror
 
 .tengh {
     float: none;
-    margin: auto auto;
+    margin: 0 auto;
     margin-top: 140px;
 }
 
 .eror {
     font-size: 100px;
+}
+
+.tmbol a {
+    font-size: 1em;
+    text-transform: uppercase;
+    color: white;
+    border-radius: 6px;
+    width: 20%;
+    padding: 12px 0px;
+    letter-spacing: 2px;
+    display: inline-block;
+    background: rgba(0,0,0,0.6);
+    font-family: 'Ropa Sans', sans-serif;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    margin-bottom: 10px;
+}
+
+.tmbol a:hover {
+    background: #3859a0;
+    text-decoration: none;
+    transition:0.5s all;
+    -webkit-transition:0.5s all;
+    -o-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -ms-transition:0.5s all;
 }
