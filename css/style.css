@@ -206,7 +206,20 @@ sukses
 /*========
 eror
 ==========*/
+.bodi4{
+    background: url('../gambar/eror.jpg');
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+}
+
 .tengh {
     float: none;
-    margin: 0 auto;
+    margin: auto auto;
+    margin-top: 140px;
+}
+
+.eror {
+    font-size: 100px;
 }
