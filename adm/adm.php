@@ -52,7 +52,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		 $browser			= $_SERVER['HTTP_USER_AGENT'];
          $_SESSION['user']	= $username;
          $_SESSION['login'] = hash('sha512', $browser.$password);
-         
+         $ip 				= $_SERVER['REMOTE_ADDR'];
+         $dklien	 		= getBrowser();
+         $broser 			= $dklien['browser'].$dklien['version'];
+         $os				= $dklien['platform'];
+         $wkt				= date("Y-m-d H:i:s");
+         $catat = mysqli_query($koneksi,"INSERT INTO log (ip, os, browser, wkt, ket) VALUES('$ip','$os','$broser','$wkt','sekses')") or die('Error: ' . mysqli_error($koneksi));
          header ('location:sukses.php');
       }else{
          echo "<script>
