@@ -36,7 +36,6 @@
 <?php 
 include '../kon.php';
 include 'os.php';
-
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -44,22 +43,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	$username = md5(mysqli_real_escape_string($koneksi,$_POST['username']));
 	$password = md5(mysqli_real_escape_string($koneksi,$_POST['password']));
 
-	$sql = "SELECT ID FROM admin WHERE user ='$username' AND pass ='$password'";
-	$data =mysqli_query($koneksi,$sql);
-	$banding = mysqli_num_rows($data);
+	$sql 		= "SELECT ID FROM admin WHERE user ='$username' AND pass ='$password'";
+	$data 		= mysqli_query($koneksi,$sql);
+	$banding 	= mysqli_num_rows($data);
+	$ip 		= $_SERVER['REMOTE_ADDR'];
+    $dklien	 	= getBrowser();
+    $broser 	= $dklien['name'].' '.$dklien['version'];
+    $os			= $dklien['platform'];
+    $wkt		= date("Y-m-d H:i:s");
 
 	if($banding == 1) {
 		 $browser			= $_SERVER['HTTP_USER_AGENT'];
          $_SESSION['user']	= $username;
          $_SESSION['login'] = hash('sha512', $browser.$password);
-         $ip 				= $_SERVER['REMOTE_ADDR'];
-         $dklien	 		= getBrowser();
-         $broser 			= $dklien['browser'].$dklien['version'];
-         $os				= $dklien['platform'];
-         $wkt				= date("Y-m-d H:i:s");
-         $catat = mysqli_query($koneksi,"INSERT INTO log (ip, os, browser, wkt, ket) VALUES('$ip','$os','$broser','$wkt','sekses')") or die('Error: ' . mysqli_error($koneksi));
+         $catat = mysqli_query($koneksi,"INSERT INTO log (ip, os, browser, wkt, ket) VALUES('$ip','$os','$broser','$wkt','sukses')") or die('Error: ' . mysqli_error($koneksi));
          header ('location:sukses.php');
       }else{
+      	 $catat = mysqli_query($koneksi,"INSERT INTO log (ip, os, browser, wkt, ket) VALUES('$ip','$os','$broser','$wkt','gagal')") or die('Error: ' . mysqli_error($koneksi));
          echo "<script>
          		swal('Eror','Username atau password salah!','error');
          	   </script>";
