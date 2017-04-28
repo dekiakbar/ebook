@@ -34,7 +34,8 @@
 </html>
 
 <?php 
-include ("../kon.php");
+include '../kon.php';
+include 'os.php';
 
 session_start();
 
@@ -51,6 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		 $browser			= $_SERVER['HTTP_USER_AGENT'];
          $_SESSION['user']	= $username;
          $_SESSION['login'] = hash('sha512', $browser.$password);
+         
          header ('location:sukses.php');
       }else{
          echo "<script>
