@@ -18,13 +18,13 @@
 				<div class="col-sm-6 tengh warbel">
 					<div class="row">
 						<div class="col-sm-12 text-center">
-							<h2>Eror Gan!</h2>
+							<p class="jdleror">Eror Gan!!</p>
 						</div>
 						<div class="col-sm-12 text-center">
 							<span class="eror">4<img src="gambar/emot.gif">4</span>
 						</div>
 						<div class="col-sm-12 text-center">
-							<p>Halaman yang ente cari kgk ada</p>
+							<h3>Halaman yang ente cari kgk ada, mending balik ke Home aja</h3>
 						</div>
 						<div class="row">
 							<div class="col-sm-12 tmbol text-center">

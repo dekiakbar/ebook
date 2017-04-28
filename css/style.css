@@ -207,6 +207,7 @@ sukses
 eror
 ==========*/
 .bodi4{
+    font-family: 'Beyond Wonderland';
     background: url('../gambar/eror.jpg');
     background-position: center center;
     background-repeat:  no-repeat;
@@ -220,12 +221,17 @@ eror
     margin-top: 140px;
 }
 
+.jdleror {
+    font-size: 40px;
+}
+
 .eror {
     font-size: 100px;
+    line-height: 0;
 }
 
 .tmbol a {
-    font-size: 1em;
+    font-size: 1.3em;
     text-transform: uppercase;
     color: white;
     border-radius: 6px;
@@ -233,8 +239,7 @@ eror
     padding: 12px 0px;
     letter-spacing: 2px;
     display: inline-block;
-    background: rgba(0,0,0,0.6);
-    font-family: 'Ropa Sans', sans-serif;
+    background: rgba(0,0,0,0.5);
     transition: 0.5s all;
     -webkit-transition: 0.5s all;
     -o-transition: 0.5s all;
@@ -244,7 +249,7 @@ eror
 }
 
 .tmbol a:hover {
-    background: #3859a0;
+    background: #7F00FF;
     text-decoration: none;
     transition:0.5s all;
     -webkit-transition:0.5s all;
