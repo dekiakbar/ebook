@@ -64,7 +64,7 @@
                         echo '
                             <tr>
                             <td>'.$no.'</td>
-                            <td><a href="'.$data['link'].'"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
+                            <td><a href="../'.$data['link'].'"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
                             <td>'.$data['nmp'].'</td>
                             <td>';
                        

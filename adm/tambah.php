@@ -114,7 +114,7 @@
 									<label class="control-label col-sm-4"><span class="glyphicon glyphicon-user"></span> Nama Admin:</label>
 									<div class="col-sm-8">
 										<?php 
-										$user = $_SESSION['login_user']; 
+										$user = $_SESSION['user']; 
 										$nadmin = mysqli_query($koneksi, "SELECT * FROM admin WHERE user='$user'");
 									
 											if (mysqli_num_rows($nadmin) == 0) {
@@ -201,7 +201,7 @@
 				if (mysqli_num_rows($apass) == 1) {
 					if (in_array($extensi, $jenis) === true) {
 						move_uploaded_file($file, '../ebook/'.$nama);
-						$insert = mysqli_query($koneksi," INSERT INTO buku(jdl, nmp, kat, link, tgl, donasi, ukuran)VALUES ('$judul', '$pengarang', '$kat', '../ebook/$nama', '$tgl', '$donasi', '$ukuran')") or die('Error: ' . mysqli_error($koneksi));
+						$insert = mysqli_query($koneksi," INSERT INTO buku(jdl, nmp, kat, link, tgl, donasi, ukuran)VALUES ('$judul', '$pengarang', '$kat', 'ebook/$nama', '$tgl', '$donasi', '$ukuran')") or die('Error: ' . mysqli_error($koneksi));
 						if ($insert) {
 							echo "<script>swal('Berhasil','Upload Berhasil','success');</script>";
 						}else{
