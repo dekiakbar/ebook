@@ -42,6 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	$username = md5(mysqli_real_escape_string($koneksi,$_POST['username']));
 	$password = md5(mysqli_real_escape_string($koneksi,$_POST['password']));
+	$user     = $_POST['username'];
 
 	$sql 		= "SELECT ID FROM admin WHERE user ='$username' AND pass ='$password'";
 	$data 		= mysqli_query($koneksi,$sql);
@@ -56,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		 $browser			= $_SERVER['HTTP_USER_AGENT'];
          $_SESSION['user']	= $username;
          $_SESSION['login'] = hash('sha512', $browser.$password);
-         $catat = mysqli_query($koneksi,"INSERT INTO log (ip, os, browser, wkt, ket) VALUES('$ip','$os','$broser','$wkt','sukses')") or die('Error: ' . mysqli_error($koneksi));
+         $catat = mysqli_query($koneksi,"INSERT INTO log (user, ip, os, browser, wkt, ket) VALUES('$user','$ip','$os','$broser','$wkt','sukses')") or die('Error: ' . mysqli_error($koneksi));
          header ('location:sukses.php');
       }else{
       	 $catat = mysqli_query($koneksi,"INSERT INTO log (ip, os, browser, wkt, ket) VALUES('$ip','$os','$broser','$wkt','gagal')") or die('Error: ' . mysqli_error($koneksi));
