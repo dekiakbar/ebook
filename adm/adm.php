@@ -60,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
          $catat = mysqli_query($koneksi,"INSERT INTO log (user, ip, os, browser, wkt, ket) VALUES('$user','$ip','$os','$broser','$wkt','sukses')") or die('Error: ' . mysqli_error($koneksi));
          header ('location:sukses.php');
       }else{
-      	 $catat = mysqli_query($koneksi,"INSERT INTO log (ip, os, browser, wkt, ket) VALUES('$ip','$os','$broser','$wkt','gagal')") or die('Error: ' . mysqli_error($koneksi));
+      	 $catat = mysqli_query($koneksi,"INSERT INTO log (user, ip, os, browser, wkt, ket) VALUES('$user','$ip','$os','$broser','$wkt','gagal')") or die('Error: ' . mysqli_error($koneksi));
          echo "<script>
          		swal('Eror','Username atau password salah!','error');
          	   </script>";
