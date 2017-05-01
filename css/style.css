@@ -265,3 +265,26 @@ index
     text-decoration: none;
     color: #fff;
 }
+
+/*=========
+Bawah
+===========*/
+
+.bawah {
+    height: 50px;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.tengah {
+    float: none;
+    margin: 13px auto;
+}
+
+.tengah p{
+    margin: 0;
+}
+
+.tengah a{
+    text-decoration: none;
+    color: #fff;
+}

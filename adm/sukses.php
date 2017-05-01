@@ -34,7 +34,7 @@
                 <li class="active"><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span> Update</a></li>
+                <li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span> Seting</a></li>
                 <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>
@@ -54,8 +54,9 @@
                         <th>Menu</th>
                     </tr>
                     <?php
-                    $sql    = mysqli_query($koneksi,"SELECT * FROM buku ORDER BY jdl ASC");
-                    if (mysqli_num_rows($sql) == 0) {
+                    $sql    = mysqli_query($koneksi,"SELECT * FROM buku ORDER BY jdl ASC LIMIT 10");
+                    $baris = mysqli_num_rows($sql);
+                    if ($baris == 0) {
                             echo '<tr><td colspan="8">Data Masih Kosong.</td></tr>';
                     }else{
                         $no=1;
@@ -95,6 +96,14 @@
             </div>
         </div>
     </div>
+
+    <footer>
+        <div class="col-sm-12 bawah" style="color: #fff;">
+            <div class="col-sm-8 text-center tengah">
+                <p>&copy; All Right Reserved | Designed by <a href="#">HMTI</a></p>
+            </div>
+        </div>
+    </footer>
     <script type="text/javascript">
         $(document).on('click','#delbuk',function(){
 			var id = $(this).data('id');
