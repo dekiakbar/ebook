@@ -99,11 +99,12 @@
 
     <footer>
         <div class="col-sm-12 bawah" style="color: #fff;">
-            <div class="col-sm-8 text-center tengah">
+            <div class="col-sm-8 text-center tengah fixed-bottom">
                 <p>&copy; All Right Reserved | Designed by <a href="#">HMTI</a></p>
             </div>
         </div>
     </footer>
+    
     <script type="text/javascript">
         $(document).on('click','#delbuk',function(){
 			var id = $(this).data('id');

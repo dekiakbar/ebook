@@ -271,8 +271,11 @@ Bawah
 ===========*/
 
 .bawah {
+    position: fixed;
     height: 50px;
     background-color: rgba(0,0,0,0.2);
+    bottom: 0;
+
 }
 
 .tengah {
