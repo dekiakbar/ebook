@@ -113,7 +113,7 @@ form.login input[type="submit"]:hover
 /*======
 tambah
 ========*/
-.bodi2{
+.boditambah{
     background: linear-gradient(to bottom right, cyan, blue, skyblue);
     background-position: center center;
     background-repeat:  no-repeat;
@@ -184,8 +184,8 @@ tr th{
 /*======
 edit
 ========*/
-.bodi1{
-    background: linear-gradient(to bottom left, magenta, blue);
+.bodiedit{
+    background: linear-gradient(to bottom, #3300FF, #0BB5FF);
     background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;
@@ -195,8 +195,8 @@ edit
 /*========
 sukses
 ==========*/
-.bodi3{
-    background: linear-gradient(to bottom , purple, magenta);
+.bodisukses{
+    background: linear-gradient(to bottom left, #00F5FF, #0000FF, #7D26CD);
     background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;
@@ -271,11 +271,9 @@ Bawah
 ===========*/
 
 .bawah {
-    position: fixed;
+    position: relative;
     height: 50px;
     background-color: rgba(0,0,0,0.2);
-    bottom: 0;
-
 }
 
 .tengah {

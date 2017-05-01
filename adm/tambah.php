@@ -18,7 +18,7 @@
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<link rel="shortcut icon" href="../gambar/ssd.ico">
 </head>
-<body class="bodi2">
+<body class="boditambah">
 	<nav class="navbar navbar-default warna" role="navigation">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -176,7 +176,14 @@
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
+	<footer>
+        <div class="col-sm-12 bawah" style="color: #fff;">
+            <div class="col-sm-8 text-center tengah fixed-bottom">
+                <p>&copy; 2017 All Right Reserved | Designed by <a href="#">HMTI</a></p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
 
