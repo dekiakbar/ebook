@@ -33,31 +33,44 @@
     <p>TEKNIK INFORMATIKA</p>
   </div>
 </div>
-	<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
-  <ul class="nav navbar-nav">
-    <li class="active"><a href="#">LOGO</a></li>
-    <li><a href="#">Page 1</a></li>
-    <li><a href="#">Page 2</a></li>
-    <li><a href="#">Page 3</a></li>
-  </ul>
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">HMTI</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 <div class="container">    
   <div class="row text-center">
         <?php
         require_once 'kon.php';
-        $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY jdl ASC");
+        $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY jdl ASC LIMIT 10");
         if (mysqli_num_rows($sql) == 0) {
             echo "Database buku kosong";
           }else{
             $no=1;
             while ($data = mysqli_fetch_assoc($sql)) {
-              //echo "<a href='".$data['link']."'>".$data['jdl']."</a>";
+              $datkat     = explode(',',$data['kat']);
+              
               echo '
-              <div class="col-sm-4">
+              <div class="col-sm-3">
                 <div class="panel panel-primary">
                   <div class="panel-heading">'.$data['jdl'].'</div>
                     <div class="panel-body"><img src="#" class="img-responsive" style="width:100%" alt="Image"></div>
-                    <div class="panel-footer"><a href="'.$data['link'].'" class="btn btn-primary">Download</a></div>
+                    <div class="panel-footer"><a href="#" class="btn btn-primary btn-sm">Download</a>
+                    <a href="'.$data['link'].'" class="btn btn-info btn-sm">Preview</a></div>
                 </div>
               </div>
               ';

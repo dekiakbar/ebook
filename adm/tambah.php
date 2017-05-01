@@ -249,7 +249,14 @@
 			if (mysqli_num_rows($tes) == 0) {
 				$insert = mysqli_query($koneksi,"INSERT INTO kate(kategori) VALUES ('$katbar')") or die('Eror:'.mysqli_error($koneksi));
 				if ($insert) {
-					echo "<script>swal('Berhasil','Berhasil Tambah kategori','success');</script>";
+					echo "<script>
+							swal('Berhasil','Berhasil Tambah kategori','success').
+							then(function(isConfirm){
+								if(isConfirm){
+									window.location.href = window.location.href;
+								}
+							});
+						</script>";
 				}else{
 					echo "<script>swal('Gagal','Gagal Tambah kategori','error');</script>";
 				}
