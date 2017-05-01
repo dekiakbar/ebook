@@ -39,8 +39,8 @@ include ('../kon.php');
 		        <li><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
-		    	<li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span>Tambah</a></li>
-		      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+		    	<li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span> Tambah</a></li>
+		      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 		    </ul>
 		</div>
 	</nav>

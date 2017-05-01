@@ -34,7 +34,7 @@
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
 		    	<li class="active"><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span> Seting</a></li>
-		      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+		      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 		    </ul>
 		</div>
 	</nav>	
