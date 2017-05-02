@@ -59,6 +59,11 @@ require_once 'kon.php';
   .dropdown-menu li a:hover {
       background-color: royalblue !important;
   }
+
+  .carousel .carousel-inner{
+    max-height:700px; 
+  }
+
   .carousel-inner img {
       width: 100%;
       margin: auto;
@@ -72,8 +77,8 @@ require_once 'kon.php';
     }
   }
   .ebook{
-    width: 95%;
-    margin-left: 30px;
+    float: none;
+    margin: 0 auto;
   }
 
   .transparan{
@@ -117,76 +122,79 @@ require_once 'kon.php';
     </div>
   </nav>
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="geser" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#geser" data-slide-to="0" class="active"></li>
+      <li data-target="#geser" data-slide-to="1"></li>
+      <li data-target="#geser" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="gambar/login.jpg" alt="Nvidia" width="1200" height="236">
+        <img src="gambar/1.jpg">
         <div class="carousel-caption">
           <h3>TEKNIK INFORMATIKA</h3>
           <p>NO SYSTEM IS SAFE AND HAVE FUN IN CYBER WORLD</p>
         </div>      
       </div>
       <div class="item">
-        <img src="gambar/login.jpg" alt="Nvidia" width="1366" height="700">
+        <img src="gambar/1.jpg">
         <div class="carousel-caption">
          <h3>TEKNIK INFORMATIKA</h3>
           <p>NO SYSTEM IS SAFE AND HAVE FUN IN CYBER WORLD</p>
         </div>      
       </div>   
       <div class="item">
-        <img src="gambar/login.jpg" alt="Nvidia" width="1366" height="700">
+        <img src="gambar/1.jpg">
         <div class="carousel-caption">
           <h3>TEKNIK INFORMATIKA</h3>
           <p>NO SYSTEM IS SAFE AND HAVE FUN IN CYBER WORLD</p>
         </div>      
       </div>
     </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <a class="left carousel-control" href="#geser" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <a class="right carousel-control" href="#geser" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-</div><br>
+</div>
 
-<div class="ebook">    
-  <div class="panel panel-primary" width="100%">
-    <div class="panel-heading">E-BOOK</div>
-    <div class="panel-body">
-      <div class="container">    
-        <div class="row">
-            <?php
-              require_once 'kon.php';
-              $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY jdl ASC LIMIT 10");
-              if (mysqli_num_rows($sql) == 0) {
-                  echo "Database buku kosong";
-                }else{
-                  $no=1;
-                  while ($data = mysqli_fetch_assoc($sql)) {
-                    $datkat     = explode(',',$data['kat']);
-                    
-                    echo '
-                    <div class="col-sm-2">
-                      <div class="panel panel-primary">
-                        <div class="panel-heading text-center">'.$data['jdl'].'</div>
-                        <div class="panel-body"><img src="#" class="img-responsive" style="width:100%" alt="Image"></div>
-                        <div class="panel-footer text-center">
-                          <a href="#" class="btn btn-primary btn-xs">Download</a>
-                          <a href="'.$data['link'].'" class="btn btn-info btn-xs">Preview</a>
+<br>
+
+<div class="container">
+  <div class="col-sm-12 ebook">    
+    <div class="panel panel-primary">
+      <div class="panel-heading">E-BOOK</div>
+      <div class="panel-body">
+        <div class="col-sm-12">  
+          <div class="row">
+              <?php
+                require_once 'kon.php';
+                $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY jdl ASC LIMIT 10");
+                 if (mysqli_num_rows($sql) == 0) {
+                    echo "Database buku kosong";
+                  }else{
+                    $no=1;
+                    while ($data = mysqli_fetch_assoc($sql)) {
+                      $datkat     = explode(',',$data['kat']);         
+                      echo '
+                      <div class="col-sm-3">
+                        <div class="panel panel-primary">
+                          <div class="panel-heading text-center">'.$data['jdl'].'</div>
+                          <div class="panel-body"><img src="#" class="img-responsive" style="width:100%" alt="Image"></div>
+                          <div class="panel-footer text-center">
+                            <a href="#" class="btn btn-primary btn-xs">Download</a>
+                            <a href="'.$data['link'].'" class="btn btn-info btn-xs">Preview</a>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    ';
-                  }
-                }  
-            ?>
+                      ';
+                    }
+                  }  
+              ?>
+          </div>
         </div>
       </div>
       <br>
