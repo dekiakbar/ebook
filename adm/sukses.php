@@ -105,7 +105,7 @@
                     ?>
                 </table>
             </div>
-            <div class="col-sm-12 text-center">
+            <div class="col-sm-12 text-center" style="color: cyan;">
                 <?php 
                     $ambil = mysqli_query($koneksi, "SELECT id From buku");
                     $banyakbaris = mysqli_num_rows($ambil);
@@ -123,9 +123,9 @@
 
                     for ($i=1; $i <= $hitunghal ; $i++) { 
                         if ($i === $halaman) {
-                            echo "Halaman ".$i."<br>";
+                            echo '<span>'.$i.'</span>';
                         }else{
-                            echo '<a href="sukses.php?halaman='.$i.'">Halaman '.$i.'</a><br>';
+                            echo '<a href="sukses.php?halaman='.$i.'" style="color: #fff;">'.$i.'</a>';
                         }
                     }
                  ?>
