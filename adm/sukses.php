@@ -106,7 +106,8 @@
                 </table>
             </div>
             <div class="col-sm-12 text-center" style="color: cyan;">
-                <ul class="pagination pagination-sm">
+                <div class="ukuran">
+                    <ul class="pagination pagination-sm nomargin">
                     <?php 
                         $ambil = mysqli_query($koneksi, "SELECT id From buku");
                         $banyakbaris = mysqli_num_rows($ambil);
@@ -131,6 +132,7 @@
                         }
                      ?>
                 </ul>
+                </div>
             </div>
         </div>
     </div>

@@ -208,6 +208,15 @@ sukses
     margin-bottom: 10px;
 }
 
+.nomargin {
+    margin: 0 auto;
+}
+
+.pagination-sm > li > a {
+    padding: 3px 6px;
+    font-size: 10px;
+}
+
 /*========
 eror
 ==========*/
