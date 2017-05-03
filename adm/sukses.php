@@ -1,6 +1,7 @@
 <?php
     include("session.php");
     include ('../kon.php');
+    $halaman=1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -156,6 +157,11 @@
             }else{
                 echo "<script>swal('Gagal','Data Tidak Terhapus','error');</script>";
             }
+        }
+    }else if (isset($_GET['halaman'])) {
+        $halaman = filter_input(INPUT_GET, 'halaman', FILTER_VALIDATE_INT);
+        if (false === $halaman) {
+            $halaman = 1;
         }
     }
     ?>
