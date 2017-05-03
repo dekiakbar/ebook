@@ -209,7 +209,7 @@ sukses
 }
 
 .nomargin {
-    margin: 0 auto;
+    margin: 1px auto;
 }
 
 .pagination-sm > li > a {
@@ -227,6 +227,11 @@ sukses
 
 .table > tbody > tr > td {
     vertical-align: middle;
+}
+
+.selanjutnya{
+    display: inline-block;
+    top: 0;
 }
 /*========
 eror

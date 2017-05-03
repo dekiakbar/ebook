@@ -131,6 +131,7 @@
                         }
                      ?>
                 </ul>
+                <?php echo '<a class="selanjutnya" href="sukses.php?halaman='.($i-1).'"><span class="glyphicon glyphicon-chevron-right"></span></a>'; ?>
             </div>
         </div>
     </div>
