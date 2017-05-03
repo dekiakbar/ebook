@@ -214,9 +214,16 @@ sukses
 
 .pagination-sm > li > a {
     padding: 3px 6px;
-    font-size: 10px;
+    font-size: 12px;
+    background-color: rgba(0,0,0,0.4);
+    text-decoration: none;
+    color: white;
 }
 
+.pagination > li > a {
+    border-top: 1px;
+    border-bottom: 1px;
+}
 /*========
 eror
 ==========*/
