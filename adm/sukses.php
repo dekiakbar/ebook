@@ -55,6 +55,14 @@
                         <th>Menu</th>
                     </tr>
                     <?php
+                    
+                    if (isset($_GET['halaman'])) {
+                        $halaman = filter_input(INPUT_GET, 'halaman', FILTER_VALIDATE_INT);
+                        if (false === $halaman) {
+                            $halaman = 1;
+                        }
+                    }
+
                     $bukuperhal = 10;
                     $batas = ($halaman - 1) * $bukuperhal;
                     $sql    = mysqli_query($koneksi,"SELECT * FROM buku LIMIT ".$batas.",".$bukuperhal);
@@ -96,6 +104,31 @@
                     }
                     ?>
                 </table>
+            </div>
+            <div class="col-sm-12 text-center">
+                <?php 
+                    $ambil = mysqli_query($koneksi, "SELECT id From buku");
+                    $banyakbaris = mysqli_num_rows($ambil);
+                    mysqli_free_result($ambil);
+
+                    $hitunghal = 0;
+                    if ($banyakbaris == 0) {
+                        # code...
+                    }else{
+                        $hitunghal = (int)ceil($banyakbaris / $bukuperhal);
+                        if ($halaman > $hitunghal) {
+                            $halaman = 1;
+                        }
+                    }
+
+                    for ($i=1; $i <= $hitunghal ; $i++) { 
+                        if ($i === $halaman) {
+                            echo "Halaman ".$i."<br>";
+                        }else{
+                            echo '<a href="sukses.php?halaman='.$i.'">Halaman '.$i.'</a><br>';
+                        }
+                    }
+                 ?>
             </div>
         </div>
     </div>
@@ -159,11 +192,6 @@
             }else{
                 echo "<script>swal('Gagal','Data Tidak Terhapus','error');</script>";
             }
-        }
-    }else if (isset($_GET['halaman'])) {
-        $halaman = filter_input(INPUT_GET, 'halaman', FILTER_VALIDATE_INT);
-        if (false === $halaman) {
-            $halaman = 1;
         }
     }
     ?>
