@@ -55,7 +55,9 @@
                         <th>Menu</th>
                     </tr>
                     <?php
-                    $sql    = mysqli_query($koneksi,"SELECT * FROM buku ORDER BY jdl ASC LIMIT 10");
+                    $bukuperhal = 10;
+                    $batas = ($halaman - 1) * $bukuperhal;
+                    $sql    = mysqli_query($koneksi,"SELECT * FROM buku LIMIT ".$batas.",".$bukuperhal);
                     $baris = mysqli_num_rows($sql);
                     if ($baris == 0) {
                             echo '<tr><td colspan="8">Data Masih Kosong.</td></tr>';
