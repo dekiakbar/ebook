@@ -124,7 +124,7 @@
 
                         for($i=1; $i <= $hitunghal ; $i++) { 
                             if ($i === $halaman) {
-                                echo '<li><a>'.$i.'</a></li>';
+                                echo '<li class="active"><a>'.$i.'</a></li>';
                             }else{
                                 echo '<li><a href="sukses.php?halaman='.$i.'">'.$i.'</a></li>';
                             }
