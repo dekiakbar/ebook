@@ -156,6 +156,7 @@ include ('../kon.php');
  			</div>
  		</div>
  	</div>
+ 	<br>
  	<footer>
         <div class="col-sm-12 bawah" style="color: #fff;">
             <div class="col-sm-8 text-center tengah fixed-bottom">

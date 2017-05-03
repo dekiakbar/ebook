@@ -97,7 +97,7 @@
         </div>
     </div>
     <footer>
-        <div class="col-sm-12 bawah" style="color: #fff;">
+        <div class="col-sm-12 bawah footer" style="color: #fff;">
             <div class="col-sm-8 text-center tengah fixed-bottom">
                 <p>&copy; 2017 All Right Reserved | Designed by <a href="#">HMTI</a></p>
             </div>
