@@ -2,6 +2,7 @@ html,
 body {
   width: 100%;
   height: 100%;
+  color: #000;
 }
 
 header {
@@ -185,7 +186,7 @@ tr th{
 edit
 ========*/
 .bodiedit{
-    background: linear-gradient(to bottom, #3300FF, #7D26CD);
+    background: linear-gradient(to right, #0000EE, #7D26CD, #FF00FF);
     background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;

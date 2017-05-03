@@ -106,29 +106,31 @@
                 </table>
             </div>
             <div class="col-sm-12 text-center" style="color: cyan;">
-                <?php 
-                    $ambil = mysqli_query($koneksi, "SELECT id From buku");
-                    $banyakbaris = mysqli_num_rows($ambil);
-                    mysqli_free_result($ambil);
+                <ul class="pagination pagination-sm">
+                    <?php 
+                        $ambil = mysqli_query($koneksi, "SELECT id From buku");
+                        $banyakbaris = mysqli_num_rows($ambil);
+                        mysqli_free_result($ambil);
 
-                    $hitunghal = 0;
-                    if ($banyakbaris == 0) {
-                        # code...
-                    }else{
-                        $hitunghal = (int)ceil($banyakbaris / $bukuperhal);
-                        if ($halaman > $hitunghal) {
-                            $halaman = 1;
-                        }
-                    }
-
-                    for ($i=1; $i <= $hitunghal ; $i++) { 
-                        if ($i === $halaman) {
-                            echo '<span>'.$i.'</span>';
+                        $hitunghal = 0;
+                        if ($banyakbaris == 0) {
+                            # code...
                         }else{
-                            echo '<a href="sukses.php?halaman='.$i.'" style="color: #fff;">'.$i.'</a>';
+                            $hitunghal = (int)ceil($banyakbaris / $bukuperhal);
+                            if ($halaman > $hitunghal) {
+                                $halaman = 1;
+                            }
                         }
-                    }
-                 ?>
+
+                        for($i=1; $i <= $hitunghal ; $i++) { 
+                            if ($i === $halaman) {
+                                echo '<li><a href="#">'.$i.'</a></li>';
+                            }else{
+                                echo '<li><a href="sukses.php?halaman='.$i.'">'.$i.'</a></li>';
+                            }
+                        }
+                     ?>
+                </ul>
             </div>
         </div>
     </div>

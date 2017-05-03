@@ -25,25 +25,25 @@ include ('../kon.php');
 	<link rel="shortcut icon" href="../gambar/ssd.ico">
  </head>
  <body class="bodiedit">
- 	<nav class="navbar navbar-default warna" role="navigation">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>
-		    </button>    
-		</div>
-		<div class="navbar-collapse collapse">
-		    <ul class="nav navbar-nav navbar-left">
-		    	<li><a href="#"><span class="glyphicon glyphicon-home"></span> Preview</a></li>
-		        <li><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
-		    </ul>
-		    <ul class="nav navbar-nav navbar-right">
-		    	<li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span> Tambah</a></li>
-		      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-		    </ul>
-		</div>
-	</nav>
+    <nav class="navbar navbar-default warna" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>    
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#"><span class="glyphicon glyphicon-home"></span> Preview</a></li>
+                <li><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span> Seting</a></li>
+                <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
  	<div class="container">
  		<div class="content">
  			<div class="col-sm-8">
