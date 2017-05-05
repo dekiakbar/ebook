@@ -231,6 +231,7 @@ sukses
 
 .col-sm-1 a {
     color: #fff;
+    vertical-align: middle;
 }
 
 .col-sm-1 a:hover {

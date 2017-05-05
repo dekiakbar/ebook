@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/sweetalert2.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/sweetalert2.min.js"></script>
@@ -109,7 +110,10 @@
                 <div class="col-sm-1">
                     <?php echo '
                         <a href="sukses.php?halaman=1">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="fa fa-angle-double-left fa-2x"></span>
+                        </a>
+                        <a href="sukses.php?halaman='.($halaman-1).'">
+                            <span class="fa fa-angle-left fa-2x"></span>
                         </a>'; 
                     ?>
                 </div>
@@ -122,7 +126,7 @@
 
                             $hitunghal = 0;
                             if ($banyakbaris == 0) {
-                                # code...
+                                
                             }else{
                                 $hitunghal = (int)ceil($banyakbaris / $bukuperhal);
                                 if ($halaman > $hitunghal) {
@@ -142,12 +146,14 @@
                 </div>
                 <div class="col-sm-1">
                     <?php echo '
+                        <a class="selanjutnya" href="sukses.php?halaman='.($halaman+1).'">
+                            <span class="fa fa-angle-right fa-2x"></span>
+                        </a>
                         <a class="selanjutnya" href="sukses.php?halaman='.($i-1).'">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="fa fa-angle-double-right fa-2x"></span>
                         </a>'; 
                     ?>
                 </div>
-                
             </div>
         </div>
     </div>
