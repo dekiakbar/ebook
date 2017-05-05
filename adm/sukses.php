@@ -108,13 +108,23 @@
             </div>
             <div class="col-sm-12 text-center">
                 <div class="col-sm-1">
-                    <?php echo '
-                        <a href="sukses.php?halaman=1">
-                            <span class="fa fa-angle-double-left fa-2x"></span>
-                        </a>
-                        <a href="sukses.php?halaman='.($halaman-1).'">
-                            <span class="fa fa-angle-left fa-2x"></span>
-                        </a>'; 
+                    <?php 
+                        echo '
+                            <a href="sukses.php?halaman=1">
+                                <span class="fa fa-angle-double-left fa-2x"></span>
+                            </a>';
+                        if ($halaman == 1) {
+                                echo '    
+                                    <a>
+                                        <span class="fa fa-angle-left fa-2x"></span>
+                                    </a>';
+                            }else{
+                                echo '    
+                                    <a href="sukses.php?halaman='.($halaman-1).'">
+                                        <span class="fa fa-angle-left fa-2x"></span>
+                                    </a>'; 
+                            }    
+                        
                     ?>
                 </div>
                 <div class="col-sm-10">
@@ -145,13 +155,22 @@
                     </ul>    
                 </div>
                 <div class="col-sm-1">
-                    <?php echo '
-                        <a class="selanjutnya" href="sukses.php?halaman='.($halaman+1).'">
-                            <span class="fa fa-angle-right fa-2x"></span>
-                        </a>
-                        <a class="selanjutnya" href="sukses.php?halaman='.($i-1).'">
-                            <span class="fa fa-angle-double-right fa-2x"></span>
-                        </a>'; 
+                    <?php 
+                        if ($halaman == $hitunghal) {
+                            echo '
+                                <a>
+                                    <span class="fa fa-angle-right fa-2x"></span>
+                                </a>';
+                        }else{
+                            echo '
+                                <a class="selanjutnya" href="sukses.php?halaman='.($halaman+1).'">
+                                    <span class="fa fa-angle-right fa-2x"></span>
+                                </a>';
+                        }
+                        echo '
+                            <a class="selanjutnya" href="sukses.php?halaman='.$hitunghal.'">
+                                <span class="fa fa-angle-double-right fa-2x"></span>
+                            </a>'; 
                     ?>
                 </div>
             </div>
