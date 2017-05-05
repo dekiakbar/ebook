@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/sweetalert2.css">
+	<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 	<script type="text/javascript" src="../js/sweetalert2.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
@@ -33,7 +34,7 @@
 		        <li><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
-		    	<li class="active"><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span> Seting</a></li>
+		    	<li class="active"><a href="tambah.php"><span class="fa fa-wrench"></span> Seting</a></li>
 		      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 		    </ul>
 		</div>
@@ -98,7 +99,9 @@
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12 text-center">
-								<input type="submit" name="tambah" value="Upload E-Book" class="btn btn-primary">
+								<button type="submit" name="tambah" class="btn btn-primary">
+									<i class="fa fa-rocket fa-lg"> Upload</i>
+								</button>
 							</div>
 						</div>
 					</form>

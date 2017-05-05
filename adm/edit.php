@@ -19,6 +19,7 @@ include ('../kon.php');
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/sweetalert2.css">
+	<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 	<script type="text/javascript" src="../js/sweetalert2.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
@@ -39,7 +40,7 @@ include ('../kon.php');
                 <li><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span> Seting</a></li>
+                <li><a href="tambah.php"><span class="fa fa-wrench"></span> Seting</a></li>
                 <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>

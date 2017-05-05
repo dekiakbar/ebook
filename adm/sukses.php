@@ -36,7 +36,7 @@
                 <li class="active"><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="tambah.php"><span class="glyphicon glyphicon-plus"></span> Seting</a></li>
+                <li><a href="tambah.php"><span class="fa fa-wrench"></span> Seting</a></li>
                 <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>
@@ -77,7 +77,7 @@
                         echo '
                             <tr>
                             <td>'.$no.'</td>
-                            <td><a href="../'.$data['link'].'"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
+                            <td><a href="../'.$data['link'].'"><span class="fa fa-cloud-download" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
                             <td>'.$data['nmp'].'</td>
                             <td>';
                        
@@ -167,6 +167,7 @@
                                     <span class="fa fa-angle-right fa-2x"></span>
                                 </a>';
                         }
+                        
                         echo '
                             <a class="selanjutnya" href="sukses.php?halaman='.$hitunghal.'">
                                 <span class="fa fa-angle-double-right fa-2x"></span>
