@@ -106,32 +106,48 @@
                 </table>
             </div>
             <div class="col-sm-12 text-center">
-                <ul class="pagination pagination-sm nomargin">
-                    <?php 
-                        $ambil = mysqli_query($koneksi, "SELECT id From buku");
-                        $banyakbaris = mysqli_num_rows($ambil);
-                        mysqli_free_result($ambil);
+                <div class="col-sm-1">
+                    <?php echo '
+                        <a href="sukses.php?halaman=1">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>'; 
+                    ?>
+                </div>
+                <div class="col-sm-10">
+                    <ul class="pagination pagination-sm nomargin">
+                        <?php 
+                            $ambil = mysqli_query($koneksi, "SELECT id From buku");
+                            $banyakbaris = mysqli_num_rows($ambil);
+                            mysqli_free_result($ambil);
 
-                        $hitunghal = 0;
-                        if ($banyakbaris == 0) {
-                            # code...
-                        }else{
-                            $hitunghal = (int)ceil($banyakbaris / $bukuperhal);
-                            if ($halaman > $hitunghal) {
-                                $halaman = 1;
-                            }
-                        }
-
-                        for($i=1; $i <= $hitunghal ; $i++) { 
-                            if ($i === $halaman) {
-                                echo '<li class="active"><a>'.$i.'</a></li>';
+                            $hitunghal = 0;
+                            if ($banyakbaris == 0) {
+                                # code...
                             }else{
-                                echo '<li><a href="sukses.php?halaman='.$i.'">'.$i.'</a></li>';
+                                $hitunghal = (int)ceil($banyakbaris / $bukuperhal);
+                                if ($halaman > $hitunghal) {
+                                    $halaman = 1;
+                                }
                             }
-                        }
-                     ?>
-                </ul>
-                <?php echo '<a class="selanjutnya" href="sukses.php?halaman='.($i-1).'"><span class="glyphicon glyphicon-chevron-right"></span></a>'; ?>
+
+                            for($i=1; $i <= $hitunghal ; $i++) { 
+                                if ($i === $halaman) {
+                                    echo '<li class="active"><a>'.$i.'</a></li>';
+                                }else{
+                                    echo '<li><a href="sukses.php?halaman='.$i.'">'.$i.'</a></li>';
+                                }
+                            }
+                         ?>
+                    </ul>    
+                </div>
+                <div class="col-sm-1">
+                    <?php echo '
+                        <a class="selanjutnya" href="sukses.php?halaman='.($i-1).'">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>'; 
+                    ?>
+                </div>
+                
             </div>
         </div>
     </div>

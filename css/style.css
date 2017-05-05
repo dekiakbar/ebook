@@ -229,10 +229,14 @@ sukses
     vertical-align: middle;
 }
 
-.selanjutnya{
-    display: inline-block;
-    top: 0;
+.col-sm-1 a {
+    color: #fff;
 }
+
+.col-sm-1 a:hover {
+    color: cyan;
+}
+
 /*========
 eror
 ==========*/
