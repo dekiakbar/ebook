@@ -1,6 +1,6 @@
 <?php
-	include("session.php");
-	include ('../kon.php');
+	include 'session.php';
+	include '../kon.php';
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@
 		        <li><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
-		    	<li class="active"><a href="tambah.php"><span class="fa fa-wrench"></span> Seting</a></li>
+		    	<li class="active"><a href="tambah.php"><span class="fa fa-wrench fa-lg"></span> Seting</a></li>
 		      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 		    </ul>
 		</div>
@@ -45,7 +45,7 @@
 				<div class="col-sm-7">
 					<form class="form-horizontal col-sm-12 warbel" action="" method="post" enctype="multipart/form-data">
 						<div class="form-group">
-							<h2 class="text-center"><span class="glyphicon glyphicon-book"></span> Insert E-Book</h2>
+							<h2 class="text-center"><span class="fa fa-cloud-upload fa-lg"></span> Insert E-Book</h2>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-sm-4">Judul Buku:</label>
@@ -111,10 +111,10 @@
 						<div class="col-sm-12">
 							<form action="" method="post" class="form-horizontal col-sm-12 warbel">
 								<div class="form-group">
-									<h2 class="text-center"><span class="glyphicon glyphicon-cog"></span> Ganti Password</h2>
+									<h2 class="text-center"><span class="fa fa-gears"></span> Ganti Password</h2>
 								</div>
 								<div class="form-group">
-									<label class="control-label col-sm-4"><span class="glyphicon glyphicon-user"></span> Nama Admin:</label>
+									<label class="control-label col-sm-4"><span class="fa fa-user-secret fa-lg"></span> Nama Admin:</label>
 									<div class="col-sm-8">
 										<?php 
 										$user = $_SESSION['user']; 
@@ -183,7 +183,7 @@
 	<footer>
         <div class="col-sm-12 bawah" style="color: #fff;">
             <div class="col-sm-8 text-center tengah fixed-bottom">
-                <p>&copy; 2017 All Right Reserved | Designed by <a href="#">HMTI</a></p>
+                <p>&copy; 2017 Copyright Himpunan Mahasiswa Teknik Informatika</p>
             </div>
         </div>
     </footer>

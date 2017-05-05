@@ -40,7 +40,7 @@ include ('../kon.php');
                 <li><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="tambah.php"><span class="fa fa-wrench"></span> Seting</a></li>
+                <li><a href="tambah.php"><span class="fa fa-wrench fa-lg"></span> Seting</a></li>
                 <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>
@@ -161,7 +161,7 @@ include ('../kon.php');
  	<footer>
         <div class="col-sm-12 bawah" style="color: #fff;">
             <div class="col-sm-8 text-center tengah fixed-bottom">
-                <p>&copy; 2017 All Right Reserved | Designed by <a href="#">HMTI</a></p>
+                <p>&copy; 2017 Copyright Himpunan Mahasiswa Teknik Informatika</p>
             </div>
         </div>
     </footer>

@@ -1,6 +1,6 @@
 <?php
-    include("session.php");
-    include ('../kon.php');
+    include 'session.php';
+    include '../kon.php';
     $halaman=1;
 ?>
 <!DOCTYPE html>
@@ -18,7 +18,6 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="../gambar/ssd.ico">
-   
 </head>
  
 <body class="bodisukses">
@@ -36,7 +35,7 @@
                 <li class="active"><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="tambah.php"><span class="fa fa-wrench"></span> Seting</a></li>
+                <li><a href="tambah.php"><span class="fa fa-wrench fa-lg"></span> Seting</a></li>
                 <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>
@@ -77,14 +76,14 @@
                         echo '
                             <tr>
                             <td>'.$no.'</td>
-                            <td><a href="../'.$data['link'].'"><span class="fa fa-cloud-download" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
+                            <td><a href="../'.$data['link'].'"><span class="fa fa-book" aria-hidden="true"></span> '.$data['jdl'].'</a></td>
                             <td>'.$data['nmp'].'</td>
                             <td>';
                        
                         foreach ($datkat as $pishkat) {
                             $ktgri  = mysqli_query($koneksi,"SELECT kategori FROM kate WHERE id='$pishkat'");
                             while ($ambil  = mysqli_fetch_assoc($ktgri)) {
-                                echo '<span class="label label-info">'.$ambil['kategori'].'</span> ';
+                                echo '<span class="label label-primary">'.$ambil['kategori'].'</span> ';
                             }
                         }
                            
@@ -180,7 +179,7 @@
     <footer>
         <div class="col-sm-12 bawah footer" style="color: #fff;">
             <div class="col-sm-8 text-center tengah fixed-bottom">
-                <p>&copy; 2017 All Right Reserved | Designed by <a href="#">HMTI</a></p>
+                <p>&copy; 2017 Copyright Himpunan Mahasiswa Teknik Informatika</p>
             </div>
         </div>
     </footer>
