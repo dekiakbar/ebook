@@ -1,6 +1,7 @@
 # ebook
-#Simple Ebook Server Web Based
-contact : dekiakbar@linuxmail.org
-facebook : https://web.facebook.com/deky.siiomest
+Simple Ebook Server Web Based <br />
+Server Ebook Untuk HMTI <br />
+contact : dekiakbar@linuxmail.org <br />
+facebook : https://web.facebook.com/dekiAkb <br />
 
 
