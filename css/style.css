@@ -209,7 +209,7 @@ sukses
 }
 
 .nomargin {
-    margin: 1px auto;
+    margin: 11px auto;
 }
 
 .pagination-sm > li > a {
@@ -238,6 +238,10 @@ sukses
     color: cyan;
 }
 
+.transparan {
+    background-color: rgba(0,0,0,0.2);
+    border:none;
+}
 /*========
 eror
 ==========*/

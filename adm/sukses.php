@@ -90,12 +90,12 @@
                         echo'
                             </td>
                             <td>'.$data['tgl'].'</td>
-                            <td><span class="label label-success">'.$data['donasi'].'</span></td>
+                            <td><span class="label label-success transparan">'.$data['donasi'].'</span></td>
                             <td>'.konversi($data['ukuran'],1).'</td>
                             <td>
                                
-                                <a href="edit.php?nib='.$data['id'].'" title="Edit Ebook" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                                <a href="javascript:;" data-id="'.$data['id'].'" id="delbuk" title="Hapus Ebook" class="btn btn-danger btn-sm hapus"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                <a href="edit.php?nib='.$data['id'].'" title="Edit Ebook" class="btn btn-info btn-sm transparan"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                <a href="javascript:;" data-id="'.$data['id'].'" id="delbuk" title="Hapus Ebook" class="btn btn-danger btn-sm hapus transparan"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                             </td>
                         </tr>
                         ';
@@ -106,7 +106,7 @@
                 </table>
             </div>
             <div class="col-sm-12 text-center">
-                <div class="col-sm-1">
+                <div class="col-sm-1 nomargin">
                     <?php 
                         echo '
                             <a href="sukses.php?halaman=1">
@@ -153,7 +153,7 @@
                          ?>
                     </ul>    
                 </div>
-                <div class="col-sm-1">
+                <div class="col-sm-1 nomargin">
                     <?php 
                         if ($halaman == $hitunghal) {
                             echo '
