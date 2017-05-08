@@ -1,6 +1,7 @@
 <?php 
 require_once 'kon.php';
 require_once 'kripto.php';
+$halaman=1;
 ?>
 <!DOCTYPE html>
 <html>
@@ -105,7 +106,17 @@ require_once 'kripto.php';
       <div class="panel-body"><br> 
   		  <div class="row">
           <?php
-            $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY jdl ASC LIMIT 12");
+            if (isset($_GET['halaman'])) {
+                  $halaman = filter_input(INPUT_GET, 'halaman', FILTER_VALIDATE_INT);
+                  if (false === $halaman) {
+                      $halaman = 1;
+                  }
+            }
+
+            $bukuperhal = 12;
+            $batas = ($halaman - 1) * $bukuperhal;
+            $sql = mysqli_query($koneksi, "SELECT * FROM buku LIMIT ".$batas.",".$bukuperhal);
+            
             if (mysqli_num_rows($sql) == 0) {
               echo "Database buku kosong";
             }else{
@@ -132,7 +143,75 @@ require_once 'kripto.php';
   		    </div>  
       </div>
     <div class="col-md-12 panel panel-primary panel-footer text-center">
-      <a style="color: deepskyblue">TEKNIK INFORMATIKA</a>
+      <div class="col-sm-12 text-center">
+                <div class="col-sm-1">
+                    <?php 
+                        echo '
+                            <a href="sukses.php?halaman=1">
+                                <span class="fa fa-angle-double-left fa-2x"></span>
+                            </a>';
+                        if ($halaman == 1) {
+                                echo '    
+                                    <a>
+                                        <span class="fa fa-angle-left fa-2x"></span>
+                                    </a>';
+                            }else{
+                                echo '    
+                                    <a href="sukses.php?halaman='.($halaman-1).'">
+                                        <span class="fa fa-angle-left fa-2x"></span>
+                                    </a>'; 
+                            }    
+                        
+                    ?>
+                </div>
+                <div class="col-sm-10">
+                    <ul class="pagination pagination-sm nomargin">
+                        <?php 
+                            $ambil = mysqli_query($koneksi, "SELECT id From buku");
+                            $banyakbaris = mysqli_num_rows($ambil);
+                            mysqli_free_result($ambil);
+
+                            $hitunghal = 0;
+                            if ($banyakbaris == 0) {
+                                
+                            }else{
+                                $hitunghal = (int)ceil($banyakbaris / $bukuperhal);
+                                if ($halaman > $hitunghal) {
+                                    $halaman = 1;
+                                }
+                            }
+
+                            for($i=1; $i <= $hitunghal ; $i++) { 
+                                if ($i === $halaman) {
+                                    echo '<li class="active"><a>'.$i.'</a></li>';
+                                }else{
+                                    echo '<li><a href="sukses.php?halaman='.$i.'">'.$i.'</a></li>';
+                                }
+                            }
+                         ?>
+                    </ul>    
+                </div>
+                <div class="col-sm-1">
+                    <?php 
+                        if ($halaman == $hitunghal) {
+                            echo '
+                                <a>
+                                    <span class="fa fa-angle-right fa-2x"></span>
+                                </a>';
+                        }else{
+                            echo '
+                                <a class="selanjutnya" href="sukses.php?halaman='.($halaman+1).'">
+                                    <span class="fa fa-angle-right fa-2x"></span>
+                                </a>';
+                        }
+                        
+                        echo '
+                            <a class="selanjutnya" href="sukses.php?halaman='.$hitunghal.'">
+                                <span class="fa fa-angle-double-right fa-2x"></span>
+                            </a>'; 
+                    ?>
+                </div>
+            </div>
     </div>
   </div>
 </div>
