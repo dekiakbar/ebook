@@ -151,7 +151,7 @@ $halaman=1;
       <div class="col-sm-1">
           <?php 
               echo '
-                  <a href="index.php?halaman=1">
+                  <a href="index.php?halaman='.encryptor('encrypt',1).'">
                       <span class="fa fa-angle-double-left fa-2x"></span>
                   </a>';
               if ($halaman == 1) {
@@ -185,7 +185,7 @@ $halaman=1;
                   }
 
                   for($i=1; $i <= $hitunghal ; $i++) { 
-                      if ($i === $halaman) {
+                      if ($i == $halaman) {
                           echo '<li class="active"><a>'.$i.'</a></li>';
                       }else{
                           echo '<li><a href="index.php?halaman='.encryptor('encrypt',$i).'">'.$i.'</a></li>';
