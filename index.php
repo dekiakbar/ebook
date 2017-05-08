@@ -12,14 +12,12 @@ $halaman=1;
   	<link rel="stylesheet" href="css/bootstrap.min.css">
   	<link rel="stylesheet" href="css/styleindex.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-  	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   	<script src="js/jquery-3.2.1.min.js"></script>
   	<script src="js/bootstrap.min.js"></script>  
 	<script>
 	function openNav() {
-	    document.getElementById("mySidenav").style.width = "250px";
-	    document.getElementById("dek").style.marginLeft = "250px";
+	    document.getElementById("mySidenav").style.width = "200px";
+	    document.getElementById("dek").style.marginLeft = "200px";
 	}
 
 	function closeNav() {
@@ -46,7 +44,7 @@ $halaman=1;
       	<li>
           <form>
             <div class="form-group">
-              <input type="#" class="form-control" id="#" placeholder="Search" style="height: 23px;margin-top: 14px">
+              <input type="#" class="form-control" id="#" placeholder="Search" style="height: 25px;margin-top: 15px;">
             </div>
           </form> 
         </li>
@@ -62,40 +60,40 @@ $halaman=1;
   <a href="#">Clients</a>
   <a href="#">Contact</a>
 </div>
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="slider" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#slider" data-slide-to="0" class="active"></li>
+      <li data-target="#slider" data-slide-to="1"></li>
+      <li data-target="#slider" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="gambar/1.jpg" alt="Nvidia" width="1200" height="236">
+        <img src="gambar/1.jpg" width="100%" height="600">
         <div class="carousel-caption">
           <h3>TEKNIK INFORMATIKA</h3>
           <p>NO SYSTEM IS SAFE AND HAVE FUN IN CYBER WORLD</p>
         </div>      
       </div>
       <div class="item">
-        <img src="gambar/1.jpg" alt="Nvidia" width="1366" height="700">
+        <img src="gambar/1.jpg" width="100%" height="600">
         <div class="carousel-caption">
          <h3>TEKNIK INFORMATIKA</h3>
           <p>NO SYSTEM IS SAFE AND HAVE FUN IN CYBER WORLD</p>
         </div>      
       </div>   
       <div class="item">
-        <img src="gambar/1.jpg" alt="Nvidia" width="1366" height="700">
+        <img src="gambar/1.jpg" width="100%" height="600">
         <div class="carousel-caption">
           <h3>TEKNIK INFORMATIKA</h3>
           <p>NO SYSTEM IS SAFE AND HAVE FUN IN CYBER WORLD</p>
         </div>      
       </div>
     </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <a class="right carousel-control" href="#slider" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
@@ -126,13 +124,20 @@ $halaman=1;
                 <div class="col-md-3">
                 <div class="thumbnail">
                   <div class="panel-heading panel-default text-center"><h4>'.$data['jdl'].'</h4></div>
-                    <div class="panel-body">
-                      <img src="gambar/ssd.ico" class="img-responsive" style="width:100%" alt="Image">
-
+                    <div class="panel-body text-center">
+                      <div class="col-sm-12"><span class="fa fa-book fa-4x" style="color:#aaa;"></span></div>
+              ';
+              foreach ($datkat as $pishkat) {
+                            $ktgri  = mysqli_query($koneksi,"SELECT kategori FROM kate WHERE id='$pishkat'");
+                            while ($ambil  = mysqli_fetch_assoc($ktgri)) {
+                                echo '<span class="label label-default">'.$ambil['kategori'].'</span> ';
+                            }
+                        }
+              echo '
                     </div>
                     <div class="panel-footer">
                       <a href="dl.php?dl='.encryptor('encrypt',$data['link']).'" class="btn btn-primary btn-sm" title="Download gan"><span class="fa fa-cloud-download fa-lg"></span> Download</a>
-                      <a href="'.$data['link'].'" class="btn btn-info btn-sm" title="Cek dulu Gan!" style="position: absolute; right: 30px;"><span class="fa fa-search fa-lg"></span> Preview</a>
+                      <a href="liat.php?buku='.encryptor('encrypt',$data['link']).'" class="btn btn-info btn-sm" title="Cek dulu Gan!" style="position: absolute; right: 30px;"><span class="fa fa-search fa-lg"></span> Preview</a>
                     </div>
                   </div>
                 </div>
@@ -220,6 +225,7 @@ $halaman=1;
   <br><br>
   <p style="color: black">&copy; 2017 All Right Reserved | Designed by <a href="#" data-toggle="tooltip" title="HMTI">HIMPUNAN MAHASISWA TEKNIK INFORMATIKA</a></p> 
 </footer>
+  
 </div>
 </body>
 </html>

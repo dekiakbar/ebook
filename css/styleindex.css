@@ -5,9 +5,7 @@
     border: 0;
     font-size: 11px !important;
     letter-spacing: 4px;
-    opacity: 1;
 }
-
 .navbar li a, .navbar .navbar-brand { 
 	color: #d5d5d5 !important;
 }
@@ -89,6 +87,7 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
 .ebook{
     width: 95%;
     float: none;

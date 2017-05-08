@@ -14,4 +14,5 @@ require_once 'kripto.php';
   }else{
   	header('Location: index.php');
   }
-   ?>    }
+
+?> 
