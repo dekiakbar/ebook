@@ -1,0 +1,106 @@
+.navbar {
+    font-family: Montserrat, sans-serif;
+    margin-bottom: 0;
+    background-color: transparent;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+    opacity: 0.9;
+}
+
+.navbar li a, .navbar .navbar-brand { 
+	color: #d5d5d5 !important;
+}
+
+.navbar-nav li a:hover {
+	color: #fff !important;
+}
+
+.navbar-nav li.active a {
+	color: #fff !important;
+	background-color: #29292c !important;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: transparent;
+}
+
+.carousel-inner img {
+    width: 100%;
+    margin: auto;
+}
+	  
+.carousel-caption h3 {
+	color: #fff !important;
+}
+
+@media (max-width: 600px) {
+	    .carousel-caption {
+	      display: none; 
+	    }
+}
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 100px;
+    
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+#dek {
+    transition: margin-left .5s;
+    color: white;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.ebook{
+    width: 95%;
+    float: none;
+    margin: 0 auto;
+}	
+
+.panel-heading h4 {
+  	color: #000;
+}
+
+.nomargin{
+	margin:0 auto;
+	vertical-align: middle;
+}
+
