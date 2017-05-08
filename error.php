@@ -28,7 +28,7 @@
 						</div>
 						<div class="row">
 							<div class="col-sm-12 tmbol text-center">
-							<a href="#">Home</a>
+							<a href="index.php">Home</a>
 							</div>	
 						</div>
 					</div>
