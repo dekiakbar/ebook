@@ -120,7 +120,7 @@ require_once 'kripto.php';
 
                     </div>
                     <div class="panel-footer">
-                      <a href="index.php?dl='.encryptor('encrypt',$data['link']).'" class="btn btn-primary btn-sm" title="Download gan"><span class="fa fa-cloud-download fa-lg"></span> Download</a>
+                      <a href="dl.php?dl='.encryptor('encrypt',$data['link']).'" class="btn btn-primary btn-sm" title="Download gan"><span class="fa fa-cloud-download fa-lg"></span> Download</a>
                       <a href="'.$data['link'].'" class="btn btn-info btn-sm" title="Cek dulu Gan!" style="position: absolute; right: 30px;"><span class="fa fa-search fa-lg"></span> Preview</a>
                     </div>
                   </div>
@@ -149,22 +149,3 @@ require_once 'kripto.php';
 </body>
 </html>
 
-<?php 
-  if (isset($_GET['dl'])) {
-    $link = encryptor('decrypt',$_GET['dl']);
-    $namafile = substr($link,6);
-    if (file_exists($link)) {
-      if (FALSE !== ($file = fopen($link, 'r'))) {
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.basename($file));
-        header('Content-Transfer-Encoding: chunked');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-      }
-     exit; 
-    }
-
-  }
-   ?>
