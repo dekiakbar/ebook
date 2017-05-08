@@ -105,7 +105,7 @@ $halaman=1;
   		  <div class="row">
           <?php
             if (isset($_GET['halaman'])) {
-                  $halaman = filter_input(INPUT_GET, 'halaman', FILTER_VALIDATE_INT);
+                  $halaman = encryptor('decrypt',$_GET['halaman']);
                   if (false === $halaman) {
                       $halaman = 1;
                   }
@@ -136,8 +136,8 @@ $halaman=1;
               echo '
                     </div>
                     <div class="panel-footer">
-                      <a href="dl.php?dl='.encryptor('encrypt',$data['link']).'" class="btn btn-primary btn-sm" title="Download gan"><span class="fa fa-cloud-download fa-lg"></span> Download</a>
-                      <a href="liat.php?buku='.encryptor('encrypt',$data['link']).'" class="btn btn-info btn-sm" title="Cek dulu Gan!" style="position: absolute; right: 30px;"><span class="fa fa-search fa-lg"></span> Preview</a>
+                      <a href="dl.php?dl='.encryptor('encrypt',$data['link']).'" class="btn btn-primary btn-sm" title="Download"><span class="fa fa-cloud-download fa-lg"></span> Download</a>
+                      <a href="liat.php?buku='.encryptor('encrypt',$data['link']).'" class="btn btn-info btn-sm" title="Lihat" style="position: absolute; right: 30px;"><span class="fa fa-search fa-lg"></span> Preview</a>
                     </div>
                   </div>
                 </div>
@@ -161,7 +161,7 @@ $halaman=1;
                           </a>';
                   }else{
                       echo '    
-                          <a href="index.php?halaman='.($halaman-1).'">
+                          <a href="index.php?halaman='.encryptor('encrypt',($halaman-1)).'">
                               <span class="fa fa-angle-left fa-2x"></span>
                           </a>'; 
                   }     
@@ -188,7 +188,7 @@ $halaman=1;
                       if ($i === $halaman) {
                           echo '<li class="active"><a>'.$i.'</a></li>';
                       }else{
-                          echo '<li><a href="index.php?halaman='.$i.'">'.$i.'</a></li>';
+                          echo '<li><a href="index.php?halaman='.encryptor('encrypt',$i).'">'.$i.'</a></li>';
                       }
                   }
                ?>
@@ -203,12 +203,12 @@ $halaman=1;
                       </a>';
               }else{
                   echo '
-                      <a class="selanjutnya" href="index.php?halaman='.($halaman+1).'">
+                      <a class="selanjutnya" href="index.php?halaman='.encryptor('encrypt',($halaman+1)).'">
                           <span class="fa fa-angle-right fa-2x"></span>
                       </a>';
               }        
               echo '
-                  <a class="selanjutnya" href="index.php?halaman='.$hitunghal.'">
+                  <a class="selanjutnya" href="index.php?halaman='.encryptor('encrypt',$hitunghal).'">
                       <span class="fa fa-angle-double-right fa-2x"></span>
                   </a>'; 
           ?>
