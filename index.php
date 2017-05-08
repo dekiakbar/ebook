@@ -120,7 +120,7 @@ require_once 'kripto.php';
 
                     </div>
                     <div class="panel-footer">
-                      <a href="'.$data['link'].'" class="btn btn-primary btn-sm" title="Download gan"><span class="fa fa-cloud-download fa-lg"></span> Download</a>
+                      <a href="index.php?dl='.encryptor('encrypt',$data['link']).'" class="btn btn-primary btn-sm" title="Download gan"><span class="fa fa-cloud-download fa-lg"></span> Download</a>
                       <a href="'.$data['link'].'" class="btn btn-info btn-sm" title="Cek dulu Gan!" style="position: absolute; right: 30px;"><span class="fa fa-search fa-lg"></span> Preview</a>
                     </div>
                   </div>
@@ -131,7 +131,9 @@ require_once 'kripto.php';
               ?>
   		    </div>  
       </div>
-    <div class="col-md-12 panel panel-primary panel-footer text-center"><a style="color: deepskyblue">TEKNIK INFORMATIKA</a></div>
+    <div class="col-md-12 panel panel-primary panel-footer text-center">
+      <a style="color: deepskyblue">TEKNIK INFORMATIKA</a>
+    </div>
   </div>
 </div>
 <br>
@@ -139,10 +141,30 @@ require_once 'kripto.php';
 <footer class="col-md-12 text-center">
   <a class="up-arrow" href="#awal" data-toggle="tooltip" title="TO TOP">
     <span class="glyphicon glyphicon-chevron-up"></span>
-  </a><br><br>
+  </a>
+  <br><br>
   <p style="color: black">&copy; 2017 All Right Reserved | Designed by <a href="#" data-toggle="tooltip" title="HMTI">HIMPUNAN MAHASISWA TEKNIK INFORMATIKA</a></p> 
 </footer>
 </div>
-
 </body>
 </html>
+
+<?php 
+  if (isset($_GET['dl'])) {
+    $link = encryptor('decrypt',$_GET['dl']);
+    $namafile = substr($link,6);
+    if (file_exists($link)) {
+      if (FALSE !== ($file = fopen($link, 'r'))) {
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.basename($file));
+        header('Content-Transfer-Encoding: chunked');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+      }
+     exit; 
+    }
+
+  }
+   ?>
