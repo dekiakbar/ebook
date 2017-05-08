@@ -192,7 +192,8 @@
 
 	<?php 
 	if (isset($_POST['tambah'])) {
-			$nama 		= $_FILES['file']['name'];
+			$namafile 	= $_FILES['file']['name'];
+			$nama 		= str_replace(" ", "", $namafile);
 			$tipe		= explode('.',$_FILES['file']['name']);
 			$extensi	= strtolower(end($tipe));
 			$jenis 		= array('doc','docx','pdf');
