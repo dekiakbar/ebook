@@ -112,6 +112,7 @@ $halaman=1;
                 <option value="tanggal" <?php if($filter == 'tanggal'){ echo 'selected'; } ?>>Tanggal</option>
                 <option value="ukuran" <?php if($filter == 'ukuran'){ echo 'selected'; } ?>>Ukuran</option>
                 <option value="pengarang" <?php if($filter == 'pengarang'){ echo 'selected'; } ?>>Pengarang</option>
+                <option value="kat" <?php if($filter == 'kat'){ echo 'selected'; } ?>>Kategori</option>
               </select>
             </div>
           </form>
@@ -137,6 +138,8 @@ $halaman=1;
               $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY nmp ASC LIMIT ".$batas.",".$bukuperhal);
             }elseif ($filter == "ukuran") {
               $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY ukuran DESC LIMIT ".$batas.",".$bukuperhal);
+            }elseif ($filter == "kate") {
+              $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY kat ASC LIMIT ".$batas.",".$bukuperhal);
             }else{
               $sql = mysqli_query($koneksi, "SELECT * FROM buku LIMIT ".$batas.",".$bukuperhal);
             }
