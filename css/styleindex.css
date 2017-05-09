@@ -125,3 +125,8 @@ body {
 .col-md-12 a{
     text-decoration: none;
 }
+
+.tengah {
+    float: none;
+    margin: 0 auto;
+}

@@ -132,6 +132,8 @@ $halaman=1;
               $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY jdl ASC LIMIT ".$batas.",".$bukuperhal);
             }elseif($filter == "tanggal") {
               $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY tgl DESC LIMIT ".$batas.",".$bukuperhal);
+            }elseif ($filter == "pengarang") {
+              $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY nmp ASC LIMIT ".$batas.",".$bukuperhal);
             }else{
               $sql = mysqli_query($koneksi, "SELECT * FROM buku LIMIT ".$batas.",".$bukuperhal);
             }
@@ -146,6 +148,10 @@ $halaman=1;
                   <div class="panel-heading panel-default text-center"><h4>'.$data['jdl'].'</h4></div>
                     <div class="panel-body text-center">
                       <div class="col-sm-12"><span class="fa fa-book fa-4x" style="color:#aaa;font-size:90px;"></span></div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-4 label label-primary tengah">'.$data['nmp'].'</div>
+                      </div>
+                      <div class="col-sm-12 biru">'.$data['tgl'].'</div>
               ';
               foreach ($datkat as $pishkat) {
                             $ktgri  = mysqli_query($koneksi,"SELECT kategori FROM kate WHERE id='$pishkat'");
