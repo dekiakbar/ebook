@@ -11,16 +11,17 @@ $halaman=1;
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="css/bootstrap.min.css">
   	<link rel="stylesheet" href="css/styleindex.css">
+    <link rel="stylesheet" type="text/css" href="css/res.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   	<script src="js/jquery-3.2.1.min.js"></script>
   	<script src="js/bootstrap.min.js"></script>  
 	<script>
 	function openNav() {
-	    document.getElementById("menu").style.width = "200px";
+	    document.getElementById("menu").style.width = "13%";
 	}
 
 	function closeNav() {
-	    document.getElementById("menu").style.width = "0px";
+	    document.getElementById("menu").style.width = "0%";
 	}
 </script>
 </head>

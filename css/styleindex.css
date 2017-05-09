@@ -78,11 +78,6 @@ body {
     margin-left: 50px;
 }
 
-#dek {
-    transition: margin-left .5s;
-    color: white;
-}
-
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
