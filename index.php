@@ -31,7 +31,7 @@ $halaman=1;
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
+          <span class="icon-bar"></span>\                        
         </button>
         <a class="navbar-brand" href="#">Logo</a>
       </div>
@@ -44,7 +44,11 @@ $halaman=1;
               </div>
             </form> 
           </li>
-          <li><a href="#"><span type="submit" style="font-size: 17px; cursor:pointer" onclick="openNav()">&#9776;</span></a></li>
+          <li>
+            <a href="#">
+              <span type="submit" style="font-size: 17px;" onclick="openNav()">&#9776;</span>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
