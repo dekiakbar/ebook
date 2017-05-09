@@ -110,6 +110,7 @@ $halaman=1;
                 <?php $filter = (isset($_POST['filter']) ? strtolower($_POST['filter']) : NULL);  ?>
                 <option value="judul" <?php if($filter == 'judul'){ echo 'selected'; } ?>>Judul</option>
                 <option value="tanggal" <?php if($filter == 'tanggal'){ echo 'selected'; } ?>>Tanggal</option>
+                <option value="ukuran" <?php if($filter == 'ukuran'){ echo 'selected'; } ?>>Ukuran</option>
                 <option value="pengarang" <?php if($filter == 'pengarang'){ echo 'selected'; } ?>>Pengarang</option>
               </select>
             </div>
@@ -134,6 +135,8 @@ $halaman=1;
               $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY tgl DESC LIMIT ".$batas.",".$bukuperhal);
             }elseif ($filter == "pengarang") {
               $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY nmp ASC LIMIT ".$batas.",".$bukuperhal);
+            }elseif ($filter == "ukuran") {
+              $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY ukuran DESC LIMIT ".$batas.",".$bukuperhal);
             }else{
               $sql = mysqli_query($koneksi, "SELECT * FROM buku LIMIT ".$batas.",".$bukuperhal);
             }
@@ -148,6 +151,9 @@ $halaman=1;
                   <div class="panel-heading panel-default text-center"><h4>'.$data['jdl'].'</h4></div>
                     <div class="panel-body text-center">
                       <div class="col-sm-12"><span class="fa fa-book fa-4x" style="color:#aaa;font-size:90px;"></span></div>
+                      <div class="col-sm-12">
+                        <div class="col-sm-4 label label-primary tengah">'.konversi($data['ukuran'],1).'</div>
+                      </div>
                       <div class="col-sm-12">
                         <div class="col-sm-4 label label-primary tengah">'.$data['nmp'].'</div>
                       </div>
