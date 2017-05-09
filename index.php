@@ -100,7 +100,22 @@ $halaman=1;
 </div><br>
 <div class="ebook">    
   <div  class="col-md-12 panel panel-primary" width="100%"><br>
-      <div class="col-md-12 panel-heading">ALL E-BOOK</div><br>
+      <div class="col-md-12 panel-heading">
+        <div class="col-md-6"><h5 style="color: #fff;">E-BOOK</h5></div>
+        <div class="col-md-6 text-right">
+          <form class="form-inline " method="get">
+            <div class="form-group">
+              <select name="filter" class="form-control" onchange="form.submit()">
+                <option value="0">Filter by</option>
+                <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
+                <option value="judul" <?php if($filter == 'judul'){ echo 'selected'; } ?>>Judul</option>
+                <option value="kategori" <?php if($filter == 'kategori'){ echo 'selected'; } ?>>Kategori</option>
+                <option value="pengarang" <?php if($filter == 'pengarang'){ echo 'selected'; } ?>>Pengarang</option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </div><br><br>
       <div class="panel-body"><br> 
   		  <div class="row">
           <?php
@@ -113,8 +128,11 @@ $halaman=1;
 
             $bukuperhal = 12;
             $batas = ($halaman - 1) * $bukuperhal;
-            $sql = mysqli_query($koneksi, "SELECT * FROM buku LIMIT ".$batas.",".$bukuperhal);
-            
+            if ($filter == "judul") {
+              $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY jdl ASC LIMIT ".$batas.",".$bukuperhal);
+            }else{
+              $sql = mysqli_query($koneksi, "SELECT * FROM buku LIMIT ".$batas.",".$bukuperhal);
+            }
             if (mysqli_num_rows($sql) == 0) {
               echo "Database buku kosong";
             }else{
@@ -125,7 +143,7 @@ $halaman=1;
                 <div class="thumbnail">
                   <div class="panel-heading panel-default text-center"><h4>'.$data['jdl'].'</h4></div>
                     <div class="panel-body text-center">
-                      <div class="col-sm-12"><span class="fa fa-book fa-4x" style="color:#aaa;"></span></div>
+                      <div class="col-sm-12"><span class="fa fa-book fa-4x" style="color:#aaa;font-size:90px;"></span></div>
               ';
               foreach ($datkat as $pishkat) {
                             $ktgri  = mysqli_query($koneksi,"SELECT kategori FROM kate WHERE id='$pishkat'");
@@ -148,26 +166,25 @@ $halaman=1;
   		    </div>  
       </div>
     <div class="col-md-12 panel panel-primary panel-footer text-center">
-      <div class="col-sm-1">
+      <div class="col-md-12">
           <?php 
               echo '
                   <a href="index.php?halaman='.encryptor('encrypt',1).'">
-                      <span class="fa fa-angle-double-left fa-2x"></span>
+                      <span class="fa fa-angle-double-left fa-2x"> </span> 
                   </a>';
               if ($halaman == 1) {
                       echo '    
                           <a>
-                              <span class="fa fa-angle-left fa-2x"></span>
+                              <span class="fa fa-angle-left fa-2x"> </span> 
                           </a>';
                   }else{
                       echo '    
                           <a href="index.php?halaman='.encryptor('encrypt',($halaman-1)).'">
-                              <span class="fa fa-angle-left fa-2x"></span>
+                              <span class="fa fa-angle-left fa-2x"> </span> 
                           </a>'; 
                   }     
           ?>
-      </div>
-      <div class="col-sm-10">
+
           <ul class="pagination pagination-sm nomargin">
               <?php 
                   $ambil = mysqli_query($koneksi, "SELECT id From buku");
@@ -193,23 +210,22 @@ $halaman=1;
                   }
                ?>
           </ul>    
-      </div>
-      <div class="col-sm-1">
+
           <?php 
               if ($halaman == $hitunghal) {
                   echo '
                       <a>
-                          <span class="fa fa-angle-right fa-2x"></span>
+                          <span class="fa fa-angle-right fa-2x"> </span> 
                       </a>';
               }else{
                   echo '
-                      <a class="selanjutnya" href="index.php?halaman='.encryptor('encrypt',($halaman+1)).'">
-                          <span class="fa fa-angle-right fa-2x"></span>
+                      <a href="index.php?halaman='.encryptor('encrypt',($halaman+1)).'">
+                          <span class="fa fa-angle-right fa-2x"> </span> 
                       </a>';
               }        
               echo '
-                  <a class="selanjutnya" href="index.php?halaman='.encryptor('encrypt',$hitunghal).'">
-                      <span class="fa fa-angle-double-right fa-2x"></span>
+                  <a href="index.php?halaman='.encryptor('encrypt',$hitunghal).'">
+                      <span class="fa fa-angle-double-right fa-2x"> </span> 
                   </a>'; 
           ?>
       </div>
