@@ -42,9 +42,9 @@ $halaman=1;
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="nav navbar-nav navbar-right">
       	<li>
-          <form>
+          <form method="post">
             <div class="form-group">
-              <input type="#" class="form-control" id="#" placeholder="Search" style="height: 25px;margin-top: 15px;">
+              <input type="text" class="form-control" name="cari" placeholder="Cari Judul" pattern="[a-zA-Z0-9\s]+" style="height: 25px;margin-top: 15px;font-size: 10px;">
             </div>
           </form> 
         </li>
@@ -140,14 +140,17 @@ $halaman=1;
               $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY ukuran DESC LIMIT ".$batas.",".$bukuperhal);
             }elseif ($filter == "kate") {
               $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY kat ASC LIMIT ".$batas.",".$bukuperhal);
+            }elseif (isset($_POST['cari'])) {
+              $cari = filter_var($_POST['cari'], FILTER_SANITIZE_STRING);
+              $sql = mysqli_query($koneksi, "SELECT * FROM buku WHERE jdl LIKE '%$cari%' LIMIT ".$batas.",".$bukuperhal);
             }else{
-              $sql = mysqli_query($koneksi, "SELECT * FROM buku LIMIT ".$batas.",".$bukuperhal);
+              $sql = mysqli_query($koneksi, "SELECT * FROM buku  LIMIT ".$batas.",".$bukuperhal);
             }
             if (mysqli_num_rows($sql) == 0) {
               echo "Database buku kosong";
             }else{
               while ($data = mysqli_fetch_assoc($sql)) {
-              $datkat     = explode(',',$data['kat']);         
+              $datkat = explode(',',$data['kat']);         
               echo '
                 <div class="col-md-3">
                 <div class="thumbnail">
@@ -262,4 +265,3 @@ $halaman=1;
 </div>
 </body>
 </html>
-
