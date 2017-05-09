@@ -203,7 +203,7 @@
 			$pengarang 	= $_POST['pengarang'];
 			$donasi 	= $_POST['donasi'];
 			$pass 		= md5($_POST['pass']);
-			$tgl		= date('h:i:s j-m-y');
+			$tgl		= date("Y-m-d H:i:s");
 			$kat      	= implode(',', $_POST['kat']);
 
 			$tes 		= mysqli_query($koneksi," SELECT * FROM buku WHERE jdl='$judul'");

@@ -103,13 +103,13 @@ $halaman=1;
       <div class="col-md-12 panel-heading">
         <div class="col-md-6"><h5 style="color: #fff;">E-BOOK</h5></div>
         <div class="col-md-6 text-right">
-          <form class="form-inline " method="get">
+          <form class="form-inline " method="post">
             <div class="form-group">
               <select name="filter" class="form-control" onchange="form.submit()">
                 <option value="0">Filter by</option>
-                <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
+                <?php $filter = (isset($_POST['filter']) ? strtolower($_POST['filter']) : NULL);  ?>
                 <option value="judul" <?php if($filter == 'judul'){ echo 'selected'; } ?>>Judul</option>
-                <option value="kategori" <?php if($filter == 'kategori'){ echo 'selected'; } ?>>Kategori</option>
+                <option value="tanggal" <?php if($filter == 'tanggal'){ echo 'selected'; } ?>>Tanggal</option>
                 <option value="pengarang" <?php if($filter == 'pengarang'){ echo 'selected'; } ?>>Pengarang</option>
               </select>
             </div>
@@ -130,6 +130,8 @@ $halaman=1;
             $batas = ($halaman - 1) * $bukuperhal;
             if ($filter == "judul") {
               $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY jdl ASC LIMIT ".$batas.",".$bukuperhal);
+            }elseif($filter == "tanggal") {
+              $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY tgl DESC LIMIT ".$batas.",".$bukuperhal);
             }else{
               $sql = mysqli_query($koneksi, "SELECT * FROM buku LIMIT ".$batas.",".$bukuperhal);
             }
