@@ -29,7 +29,7 @@ $halaman=1;
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" onclick="openNav()">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                       
@@ -58,8 +58,6 @@ $halaman=1;
   <div id="menu" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
     <a href="#">Contact</a>
   </div>
 
@@ -74,21 +72,21 @@ $halaman=1;
           <img src="gambar/1.jpg" width="100%" height="600">
           <div class="carousel-caption">
             <h3>TEKNIK INFORMATIKA</h3>
-            <p>NO SYSTEM IS SAFE AND HAVE FUN IN CYBER WORLD</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
           </div>      
         </div>
         <div class="item">
           <img src="gambar/1.jpg" width="100%" height="600">
           <div class="carousel-caption">
            <h3>TEKNIK INFORMATIKA</h3>
-            <p>NO SYSTEM IS SAFE AND HAVE FUN IN CYBER WORLD</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
           </div>      
         </div>   
         <div class="item">
           <img src="gambar/1.jpg" width="100%" height="600">
           <div class="carousel-caption">
             <h3>TEKNIK INFORMATIKA</h3>
-            <p>NO SYSTEM IS SAFE AND HAVE FUN IN CYBER WORLD</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
           </div>      
         </div>
       </div>
@@ -193,10 +191,11 @@ $halaman=1;
       <div class="col-md-12 panel panel-primary panel-footer text-center">
         <div class="col-md-12">
             <?php 
-                echo '
-                    <a href="index.php?halaman='.encryptor('encrypt',1).'">
-                        <span class="fa fa-angle-double-left fa-2x"> </span> 
-                    </a>';
+                if (mysqli_num_rows($sql) != 0){
+                        echo '  
+                            <a href="index.php?halaman='.encryptor('encrypt',1).'">
+                                <span class="fa fa-angle-double-left fa-2x"> </span> 
+                            </a>';
                 if ($halaman == 1) {
                         echo '    
                             <a>
@@ -252,6 +251,7 @@ $halaman=1;
                     <a href="index.php?halaman='.encryptor('encrypt',$hitunghal).'">
                         <span class="fa fa-angle-double-right fa-2x"> </span> 
                     </a>'; 
+                }
             ?>
         </div>
       </div>

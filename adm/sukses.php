@@ -108,6 +108,8 @@
             <div class="col-sm-12 text-center">
                 <div class="col-sm-1 nomargin">
                     <?php 
+
+                        if ($baris != 0) {
                         echo '
                             <a href="sukses.php?halaman=1">
                                 <span class="fa fa-angle-double-left fa-2x"></span>
@@ -171,6 +173,7 @@
                             <a class="selanjutnya" href="sukses.php?halaman='.$hitunghal.'">
                                 <span class="fa fa-angle-double-right fa-2x"></span>
                             </a>'; 
+                        }
                     ?>
                 </div>
             </div>
