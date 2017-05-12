@@ -1,11 +1,31 @@
+@font-face{
+    font-family: 'BlackDahlia';
+    src:  url('../fonts/BlackDahlia.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'BatFont';
+    src:  url('../fonts/BatFont.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Surfing & Kite boarding';
+    src:  url('../fonts/Surfing&Kiteboarding.ttf') format('truetype');
+}
+
 .navbar {
-    font-family: Montserrat, sans-serif;
+    font-family: 'BlackDahlia';
     margin-bottom: 0;
     background-color: rgba(0,0,0,0.6);
     border: 0;
     font-size: 11px !important;
     letter-spacing: 4px;
 }
+
+.navbar-brand{
+    font-size: 20px;
+}
+
 .navbar li a, .navbar .navbar-brand { 
 	color: #d5d5d5 !important;
 }
@@ -39,7 +59,7 @@
 }
 
 body {
-    font-family: "Lato", sans-serif;
+    font-family: 'TheLastCall-Regular';
 }
 
 .sidenav {
