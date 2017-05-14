@@ -78,6 +78,11 @@ $halaman=1;
 						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</label>
 					</div>
+					<div class="form-group">
+						<div class="col-sm-12 text-center">
+							<a href="javascript:;" data-id="'.$data['id'].'" id="delpesan" title="Hapus pesan" class="btn btn-primary transparan"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Hapus</a>
+						</div>
+					</div>
 				</form>
 			</div>
 			<div class="col-sm-6">
@@ -93,7 +98,7 @@ $halaman=1;
 
 						if (isset($_GET['halaman'])) {
 							$halaman = filter_input(INPUT_GET, 'halaman', FILTER_VALIDATE_INT);
-							if (flse === $halaman) {
+							if (false === $halaman) {
 								$halaman=1;
 							}
 						}
