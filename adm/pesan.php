@@ -100,10 +100,10 @@ $halaman=1;
 
 						$pesanperhal = 10;
 						$batas		 = ($halaman - 1) * $pesanperhal;
-						$sql = msqli_wuery($koneksi, "SELECT * FROM kontak LIMIT ".$batas.",".$pesanperhal);
+						$sql = mysqli_query($koneksi, "SELECT * FROM kontak LIMIT ".$batas.",".$pesanperhal);
 						$baris = mysqli_num_rows($sql);
 						if ($baris == 0) {
-							echo "Tidak Ada Pesan";
+							echo '<tr><td colspan="4">Tidak Ada Pesan</td></tr>';
 						}else{
 							while ($data = mysqli_fetch_assoc($sql)) {
 								echo '
@@ -111,7 +111,7 @@ $halaman=1;
 									<td>'.$data['nama'].'</td>
 									<td>'.$data['waktu'].'</td>
 									<td>'.$data['tipe'].'<?td>
-									<td>'.$data[''].'';
+									<td>'.$data[''].'</td></tr>';
 							}
 						}
 						?>
