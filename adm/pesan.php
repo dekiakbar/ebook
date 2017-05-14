@@ -97,11 +97,11 @@ $halaman=1;
 						<?php 
 
 						if (isset($_GET['halaman'])) {
-							$halaman = filter_input(INPUT_GET, 'halaman', FILTER_VALIDATE_INT);
-							if (false === $halaman) {
-								$halaman=1;
-							}
-						}
+                    		$halaman = encryptor('decrypt',$_GET['halaman']);
+                    		if (false === $halaman) {
+                        		$halaman = 1;
+                    		}
+              			}
 
 						$pesanperhal = 10;
 						$batas		 = ($halaman - 1) * $pesanperhal;
@@ -128,78 +128,71 @@ $halaman=1;
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-12 text-center">
-                <div class="col-sm-1 nomargin">
-                    <?php 
+			<div class="col-sm-12 text-center marginbawah">
+	            <?php 
+	                if (mysqli_num_rows($sql) != 0){
+	                        echo '  
+	                            <a href="pesan.php?halaman='.encryptor('encrypt',1).'">
+	                                <span class="fa fa-angle-double-left fa-2x putih"> </span> 
+	                            </a>';
+	                if ($halaman == 1) {
+	                        echo '    
+	                            <a>
+	                                <span class="fa fa-angle-left fa-2x putih"> </span> 
+	                            </a>';
+	                    }else{
+	                        echo '    
+	                            <a href="pesan.php?halaman='.encryptor('encrypt',($halaman-1)).'">
+	                                <span class="fa fa-angle-left fa-2x putih"> </span> 
+	                            </a>'; 
+	                    }     
+	            ?>
 
-                        if ($baris != 0) {
-                        echo '
-                            <a href="pesan.php?halaman=1">
-                                <span class="fa fa-angle-double-left fa-2x"></span>
-                            </a>';
-                        if ($halaman == 1) {
-                                echo '    
-                                    <a>
-                                        <span class="fa fa-angle-left fa-2x"></span>
-                                    </a>';
-                            }else{
-                                echo '    
-                                    <a href="pesan.php?halaman='.($halaman-1).'">
-                                        <span class="fa fa-angle-left fa-2x"></span>
-                                    </a>'; 
-                            }    
-                        
-                    ?>
-                </div>
-                <div class="col-sm-10">
-                    <ul class="pagination pagination-sm nomargin">
-                        <?php 
-                            $ambil = mysqli_query($koneksi, "SELECT id FROM kontak");
-                            $banyakbaris = mysqli_num_rows($ambil);
-                            mysqli_free_result($ambil);
+	            <ul class="pagination pagination-sm marginman">
+	                <?php 
+	                    $ambil = mysqli_query($koneksi, "SELECT id From kontak");
+	                    $banyakbaris = mysqli_num_rows($ambil);
+	                    mysqli_free_result($ambil);
 
-                            $hitunghal = 0;
-                            if ($banyakbaris == 0) {
-                                
-                            }else{
-                                $hitunghal = (int)ceil($banyakbaris / $pesanperhal);
-                                if ($halaman > $hitunghal) {
-                                    $halaman = 1;
-                                }
-                            }
+	                    $hitunghal = 0;
+	                    if ($banyakbaris == 0) {
+	                                  
+	                    }else{
+	                        $hitunghal = (int)ceil($banyakbaris / $pesanperhal);
+	                        if ($halaman > $hitunghal) {
+	                            $halaman = 1;
+	                        }
+	                    }
 
-                            for($i=1; $i <= $hitunghal ; $i++) { 
-                                if ($i === $halaman) {
-                                    echo '<li class="active"><a>'.$i.'</a></li>';
-                                }else{
-                                    echo '<li><a href="pesan.php?halaman='.$i.'">'.$i.'</a></li>';
-                                }
-                            }
-                         ?>
-                    </ul>    
-                </div>
-                <div class="col-sm-1 nomargin">
-                    <?php 
-                        if ($halaman == $hitunghal) {
-                            echo '
-                                <a>
-                                    <span class="fa fa-angle-right fa-2x"></span>
-                                </a>';
-                        }else{
-                            echo '
-                                <a class="selanjutnya" href="pesan.php?halaman='.($halaman+1).'">
-                                    <span class="fa fa-angle-right fa-2x"></span>
-                                </a>';
-                        }
-                        
-                        echo '
-                            <a class="selanjutnya" href="pesan.php?halaman='.$hitunghal.'">
-                                <span class="fa fa-angle-double-right fa-2x"></span>
-                            </a>'; 
-                        }
-                    ?>
-                </div>
-            </div>
+	                    for($i=1; $i <= $hitunghal ; $i++) { 
+	                        if ($i == $halaman) {
+	                            echo '<li class="active"><a>'.$i.'</a></li>';
+	                        }else{
+	                            echo '<li><a href="pesan.php?halaman='.encryptor('encrypt',$i).'">'.$i.'</a></li>';
+	                        }
+	                    }
+	                 ?>
+	            </ul>    
+
+	            <?php 
+	                if ($halaman == $hitunghal) {
+	                    echo '
+	                        <a>
+	                            <span class="fa fa-angle-right fa-2x putih"> </span> 
+	                        </a>';
+	                }else{
+	                    echo '
+	                        <a href="pesan.php?halaman='.encryptor('encrypt',($halaman+1)).'">
+	                            <span class="fa fa-angle-right fa-2x putih"> </span> 
+	                        </a>';
+	                }        
+	                echo '
+	                    <a href="pesan.php?halaman='.encryptor('encrypt',$hitunghal).'">
+	                        <span class="fa fa-angle-double-right fa-2x putih"> </span> 
+	                    </a>'; 
+	                }
+	            ?>
+        	</div>
 		</div>
 	</div>
 	<footer>

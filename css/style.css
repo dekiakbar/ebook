@@ -332,3 +332,18 @@ Bawah
 /*======
 pesan
 ========*/
+
+.putih{
+    color: white;
+    text-decoration: none;
+}
+
+.marginman{
+    margin-bottom: -3px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.marginbawah{
+    margin-bottom: 5px;
+}
