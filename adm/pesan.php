@@ -108,18 +108,147 @@ $halaman=1;
 							while ($data = mysqli_fetch_assoc($sql)) {
 								echo '
 									<tr>
-									<td>'.$data['nama'].'</td>
-									<td>'.$data['waktu'].'</td>
-									<td>'.$data['tipe'].'<?td>
-									<td>'.$data[''].'</td></tr>';
+										<td>'.$data['nama'].'</td>
+										<td>'.$data['waktu'].'</td>
+										<td>'.$data['tipe'].'<?td>
+										<td>
+											<a href="javascript:;" data-id="'.$data['id'].'" id="delpesan" title="Hapus pesan" class="btn btn-danger btn-sm hapus transparan"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+										</td>
+									</tr>';
 							}
 						}
 						?>
-						
 					</table>
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-12 text-center">
+                <div class="col-sm-1 nomargin">
+                    <?php 
+
+                        if ($baris != 0) {
+                        echo '
+                            <a href="pesan.php?halaman=1">
+                                <span class="fa fa-angle-double-left fa-2x"></span>
+                            </a>';
+                        if ($halaman == 1) {
+                                echo '    
+                                    <a>
+                                        <span class="fa fa-angle-left fa-2x"></span>
+                                    </a>';
+                            }else{
+                                echo '    
+                                    <a href="pesan.php?halaman='.($halaman-1).'">
+                                        <span class="fa fa-angle-left fa-2x"></span>
+                                    </a>'; 
+                            }    
+                        
+                    ?>
+                </div>
+                <div class="col-sm-10">
+                    <ul class="pagination pagination-sm nomargin">
+                        <?php 
+                            $ambil = mysqli_query($koneksi, "SELECT id FROM kontak");
+                            $banyakbaris = mysqli_num_rows($ambil);
+                            mysqli_free_result($ambil);
+
+                            $hitunghal = 0;
+                            if ($banyakbaris == 0) {
+                                
+                            }else{
+                                $hitunghal = (int)ceil($banyakbaris / $pesanperhal);
+                                if ($halaman > $hitunghal) {
+                                    $halaman = 1;
+                                }
+                            }
+
+                            for($i=1; $i <= $hitunghal ; $i++) { 
+                                if ($i === $halaman) {
+                                    echo '<li class="active"><a>'.$i.'</a></li>';
+                                }else{
+                                    echo '<li><a href="pesan.php?halaman='.$i.'">'.$i.'</a></li>';
+                                }
+                            }
+                         ?>
+                    </ul>    
+                </div>
+                <div class="col-sm-1 nomargin">
+                    <?php 
+                        if ($halaman == $hitunghal) {
+                            echo '
+                                <a>
+                                    <span class="fa fa-angle-right fa-2x"></span>
+                                </a>';
+                        }else{
+                            echo '
+                                <a class="selanjutnya" href="pesan.php?halaman='.($halaman+1).'">
+                                    <span class="fa fa-angle-right fa-2x"></span>
+                                </a>';
+                        }
+                        
+                        echo '
+                            <a class="selanjutnya" href="pesan.php?halaman='.$hitunghal.'">
+                                <span class="fa fa-angle-double-right fa-2x"></span>
+                            </a>'; 
+                        }
+                    ?>
+                </div>
+            </div>
+		</div>
 	</div>
+	<footer>
+        <div class="col-sm-12 bawah footer" style="color: #fff;">
+            <div class="col-sm-8 text-center tengah fixed-bottom">
+                <p>&copy; 2017 Copyright Himpunan Mahasiswa Teknik Informatika</p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        $(document).on('click','#delpesan',function(){
+			var id = $(this).data('id');
+			swal({
+		    title: "Anda yakin?",
+		    text: "ingin menghapus pesan ini?",
+		    type: "warning",
+		    showCancelButton: true,
+		    confirmButtonColor: "#4CAF50",
+		    confirmButtonText: "Ya, Hapus!",
+		    cancelButtonText: "Tidak, Batal!",
+		    closeOnConfirm: false,
+		    closeOnCancel: false
+		}).then(function(isConfirm) {
+		    if(isConfirm) {
+		        $.get('pesan.php?del=delete&', {
+		            nip:id
+		        }).done(function(){
+		        swal('Berhasil','Pesan Berhasil Dihapus','success');
+		        setTimeout(10000);
+		        location.reload(true);
+		        });
+		    } else {
+		        swal("Batal", "Pesan batal di hapus!", "error");
+		    }
+		});
+	});
+	</script>
 </body>
 </html>
+
+	<?php
+		if(isset($_GET['del']) == 'delete'){
+	        $id         = $_GET['nip'];
+	        $datapesan     = mysqli_query($koneksi, "SELECT * FROM kontak WHERE id='$id'");
+	        if(mysqli_num_rows($datapesan) == 0){
+	                echo "<script>swal('Gagal','Pesan Tidak Diketahui','error');</script>";
+	        }else{
+	            $delete = mysqli_query($koneksi, "DELETE FROM kontak WHERE id='$id'");
+	            if($delete){
+	                echo "<script>swal('Berhasil','Pesan Berhasil Dihapus','success');</script>";
+	                header("location:sukses.php");
+	            }else{
+	                echo "<script>swal('Gagal','Pesan Tidak Terhapus','error');</script>";
+	            }
+	        }
+	    }
+	  ?>
