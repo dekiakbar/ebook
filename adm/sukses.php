@@ -33,7 +33,7 @@
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="#"><span class="glyphicon glyphicon-home"></span> Preview</a></li>
                 <li class="active"><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
-                <li><a href="sukses.php"><span class="glyphicon glyphicon-envelope"></span> Message</a></li>
+                <li><a href="pesan.php"><span class="glyphicon glyphicon-envelope"></span> Message</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="tambah.php"><span class="fa fa-wrench fa-lg"></span> Seting</a></li>
