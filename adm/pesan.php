@@ -46,41 +46,45 @@ $halaman=1;
 		<div class="row">
 			<div class="col-sm-6">
 				<form class="form-horizontal warbel col-sm-12">
+					<?php 
+						if (isset($_GET['liat'])) {
+	    					$pid = encryptor('decrypt', $_GET['liat']);
+	    				}else{
+	    					$pid = 1;
+	    				}
+						$baca = mysqli_query($koneksi, "SELECT * FROM kontak WHERE id='$pid'");
+						$data = mysqli_fetch_assoc($baca);
+					 ?>
 					<div class="form-group">
 						<h2 class="text-center"><span class="glyphicon glyphicon-envelope"></span> Detail</h2>
 					</div>
 					<div class="form-group">
 						<label class="label-control col-sm-3 text-right">Pengirim :</label>
-						<label class="label-control col-sm-9">kdkakdkakdkakdk</label>
+						<label class="label-control col-sm-9"><?php echo $data['nama']; ?></label>
 					</div>
 					<div class="form-group">
 						<label class="label-control col-sm-3 text-right">No :</label>
-						<label class="label-control col-sm-9">kdkakdkakdkakdk</label>
+						<label class="label-control col-sm-9"><?php echo $data['nohp']; ?></label>
 					</div>
 					<div class="form-group">
 						<label class="label-control col-sm-3 text-right">IP :</label>
-						<label class="label-control col-sm-9">kdkakdkakdkakdk</label>
+						<label class="label-control col-sm-9"><?php echo $data['ip']; ?></label>
 					</div>
 					<div class="form-group">
 						<label class="label-control col-sm-3 text-right">Tanggal :</label>
-						<label class="label-control col-sm-9">kdkakdkakdkakdk</label>
+						<label class="label-control col-sm-9"><?php echo $data['waktu']; ?></label>
 					</div>
 					<div class="form-group">
 						<label class="label-control col-sm-3 text-right">tipe :</label>
-						<label class="label-control col-sm-9">kdkakdkakdkakdk</label>
+						<label class="label-control col-sm-9"><?php echo $data['tipe']; ?></label>
 					</div>
 					<div class="form-group">
 						<label class="label-control col-sm-3 text-right">Pesan :</label>
-						<label class="label-control col-sm-9">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</label>
+						<p class="label-control col-sm-9"><?php echo $data['pesan']; ?></p>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-12 text-center">
-							<a href="javascript:;" data-id="'.$data['id'].'" id="delpesan" title="Hapus pesan" class="btn btn-primary transparan"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Hapus</a>
+							<a href="javascript:;" data-id=<?php echo '"'.$data['id'].'"'; ?> id="delpesan" title="Hapus pesan" class="btn btn-primary transparan"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Hapus</a>
 						</div>
 					</div>
 				</form>
@@ -118,6 +122,8 @@ $halaman=1;
 										<td>'.$data['tipe'].'<?td>
 										<td>
 											<a href="javascript:;" data-id="'.$data['id'].'" id="delpesan" title="Hapus pesan" class="btn btn-danger btn-sm hapus transparan"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+
+											<a href=pesan.php?liat='.encryptor('encrypt', $data['id']).' class="btn btn-info btn-sm transparan"><span class=" fa fa-search-plus"></span></a>
 										</td>
 									</tr>';
 							}
@@ -249,4 +255,6 @@ $halaman=1;
 	            }
 	        }
 	    }
+
+	   
 	  ?>

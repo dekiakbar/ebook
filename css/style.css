@@ -347,3 +347,6 @@ pesan
 .marginbawah{
     margin-bottom: 5px;
 }
+.form-group .col-sm-9{
+    font-size: 12px;
+}
