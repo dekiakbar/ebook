@@ -36,6 +36,7 @@ $halaman=1;
                 <li class="active"><a href="pesan.php"><span class="glyphicon glyphicon-envelope"></span> Message</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+            	<li><a href="histori.php"><span class="fa fa-clock fa-lg"></span> History</a></li>
                 <li><a href="tambah.php"><span class="fa fa-wrench fa-lg"></span> Seting</a></li>
                 <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
@@ -48,7 +49,8 @@ $halaman=1;
 				<form class="form-horizontal warbel col-sm-12">
 					<?php 
 						if (isset($_GET['liat'])) {
-	    					$pid = encryptor('decrypt', $_GET['liat']);
+							$cek = mysqli_real_escape_string($koneksi, $_GET['liat']);
+	    					$pid = encryptor('decrypt', $cek);
 	    				}else{
 	    					$pid = 1;
 	    				}
@@ -123,7 +125,7 @@ $halaman=1;
 										<td>
 											<a href="javascript:;" data-id="'.$data['id'].'" id="delpesan" title="Hapus pesan" class="btn btn-danger btn-sm hapus transparan"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 
-											<a href=pesan.php?liat='.encryptor('encrypt', $data['id']).' class="btn btn-info btn-sm transparan"><span class=" fa fa-search-plus"></span></a>
+											<a href=pesan.php?liat='.encryptor('encrypt', $data['id']).' class="btn btn-info btn-sm transparan" title="Liat Pesan"><span class=" fa fa-search-plus"></span></a>
 										</td>
 									</tr>';
 							}
