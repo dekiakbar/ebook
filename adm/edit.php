@@ -1,9 +1,10 @@
 <?php 
-include ('session.php');
-include ('../kon.php');
+include 'session.php';
+include '../kon.php';
+require_once '../kripto.php';
  
  	if (isset($_GET['nib'])) {
-		$id 		= $_GET['nib'];
+		$id 		= encryptor('decrypt',$_GET['nib']);
 		$ambilbuku 	= mysqli_query($koneksi,"SELECT * FROM buku WHERE id='$id'");
 		$datadb = mysqli_fetch_assoc($ambilbuku);
 	}

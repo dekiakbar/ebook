@@ -1,6 +1,7 @@
 <?php
     include 'session.php';
     include '../kon.php';
+    require_once '../kripto.php';
     $halaman=1;
 ?>
 <!DOCTYPE html>
@@ -97,7 +98,7 @@
                             <td>'.konversi($data['ukuran'],1).'</td>
                             <td>
                                
-                                <a href="edit.php?nib='.$data['id'].'" title="Edit Ebook" class="btn btn-info btn-sm transparan"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                <a href="edit.php?nib='.encryptor('encrypt',$data['id']).'" title="Edit Ebook" class="btn btn-info btn-sm transparan"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                                 <a href="javascript:;" data-id="'.$data['id'].'" id="delbuk" title="Hapus Ebook" class="btn btn-danger btn-sm hapus transparan"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                             </td>
                         </tr>
@@ -221,13 +222,7 @@
 </html>
  
     <?php
-    function konversi($bytes, $decimals = 2) {
-        $faktor = floor((strlen($bytes) - 1) / 3);
-        if ($faktor > 0) $sz = 'KMGT';
-        return sprintf("%.{$decimals}f", $bytes / pow(1024, $faktor)) . @$sz[$faktor - 1] . 'B';
-    }
-   
-    if(isset($_GET['del']) == 'delete'){
+   if(isset($_GET['del']) == 'delete'){
         $id         = $_GET['nib'];
         $datbuk     = mysqli_query($koneksi, "SELECT * FROM buku WHERE id='$id'");
         $linkbuk    = mysqli_fetch_assoc($datbuk);
