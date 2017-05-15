@@ -26,7 +26,7 @@ include ('../kon.php');
 	<link rel="shortcut icon" href="../gambar/ssd.ico">
  </head>
  <body class="bodiedit">
-    <nav class="navbar navbar-default warna" role="navigation">
+	<nav class="navbar navbar-default warna" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
@@ -34,14 +34,17 @@ include ('../kon.php');
             <span class="icon-bar"></span>
             </button>    
         </div>
+        <a href="#" class="navbar-brand">Informatic Engineering</a>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="#"><span class="glyphicon glyphicon-home"></span> Preview</a></li>
                 <li><a href="sukses.php"><span class="glyphicon glyphicon-list-alt"></span> Ebook</a></li>
+                <li><a href="pesan.php"><span class="glyphicon glyphicon-envelope"></span> Message</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+            	<li><a href="histori.php"><span class="fa fa-history fa-lg"></span> History</a></li>
                 <li><a href="tambah.php"><span class="fa fa-wrench fa-lg"></span> Seting</a></li>
-                <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li><a href="logout.php"><span class="fa fa-sign-out fa-lg"></span> Logout</a></li>
             </ul>
         </div>
     </nav>

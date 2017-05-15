@@ -29,6 +29,7 @@ $halaman=1;
             <span class="icon-bar"></span>
             </button>    
         </div>
+        <a href="#" class="navbar-brand">Informatic Engineering</a>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="#"><span class="glyphicon glyphicon-home"></span> Preview</a></li>
@@ -36,9 +37,9 @@ $halaman=1;
                 <li class="active"><a href="pesan.php"><span class="glyphicon glyphicon-envelope"></span> Message</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-            	<li><a href="histori.php"><span class="fa fa-clock fa-lg"></span> History</a></li>
+            	<li><a href="histori.php"><span class="fa fa-history fa-lg"></span> History</a></li>
                 <li><a href="tambah.php"><span class="fa fa-wrench fa-lg"></span> Seting</a></li>
-                <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li><a href="logout.php"><span class="fa fa-sign-out fa-lg"></span> Logout</a></li>
             </ul>
         </div>
     </nav>
