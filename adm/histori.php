@@ -58,7 +58,17 @@ $halaman=1;
                         </tr>
 
                         <?php 
-                            $ambil = mysqli_query($koneksi, "SELECT * FROM log ORDER BY wkt DESC");
+
+                            if (isset($_GET['halaman'])) {
+                                $halaman = encryptor('decrypt',$_GET['halaman']);
+                                if (false === $halaman) {
+                                    $halaman = 1;
+                                }
+                            }
+
+                            $logperhal = 10;
+                            $batas       = ($halaman - 1) * $logperhal;
+                            $ambil = mysqli_query($koneksi, "SELECT * FROM log ORDER BY wkt DESC LIMIT ".$batas.",".$logperhal);
                             $baris = mysqli_num_rows($ambil);
 
                             if ($baris == 0) {
@@ -91,6 +101,74 @@ $halaman=1;
             </div>
             <div class="col-sm-3"></div>
         </div>
+                <div class="row">
+            <div class="col-sm-12 text-center marginbawah">
+                <?php 
+                    if (mysqli_num_rows($ambil) != 0){
+                            echo '  
+                                <a href="histori.php?halaman='.encryptor('encrypt',1).'">
+                                    <span class="fa fa-angle-double-left fa-2x putih"> </span> 
+                                </a>';
+                    if ($halaman == 1) {
+                            echo '    
+                                <a>
+                                    <span class="fa fa-angle-left fa-2x putih"> </span> 
+                                </a>';
+                        }else{
+                            echo '    
+                                <a href="histori.php?halaman='.encryptor('encrypt',($halaman-1)).'">
+                                    <span class="fa fa-angle-left fa-2x putih"> </span> 
+                                </a>'; 
+                        }     
+                ?>
+
+                <ul class="pagination pagination-sm marginman">
+                    <?php 
+                        $ambilid = mysqli_query($koneksi, "SELECT id From log");
+                        $banyakbaris = mysqli_num_rows($ambilid);
+                        mysqli_free_result($ambilid);
+
+                        $hitunghal = 0;
+                        if ($banyakbaris == 0) {
+                                      
+                        }else{
+                            $hitunghal = (int)ceil($banyakbaris / $logperhal);
+                            if ($halaman > $hitunghal) {
+                                $halaman = 1;
+                            }
+                        }
+
+                        for($i=1; $i <= $hitunghal ; $i++) { 
+                            if ($i == $halaman) {
+                                echo '<li class="active"><a>'.$i.'</a></li>';
+                            }else{
+                                echo '<li><a href="histori.php?halaman='.encryptor('encrypt',$i).'">'.$i.'</a></li>';
+                            }
+                        }
+                     ?>
+                </ul>    
+
+                <?php 
+                    if ($halaman == $hitunghal) {
+                        echo '
+                            <a>
+                                <span class="fa fa-angle-right fa-2x putih"> </span> 
+                            </a>';
+                    }else{
+                        echo '
+                            <a href="histori.php?halaman='.encryptor('encrypt',($halaman+1)).'">
+                                <span class="fa fa-angle-right fa-2x putih"> </span> 
+                            </a>';
+                    }        
+                    echo '
+                        <a href="histori.php?halaman='.encryptor('encrypt',$hitunghal).'">
+                            <span class="fa fa-angle-double-right fa-2x putih"> </span> 
+                        </a>'; 
+                    }
+                ?>
+            </div>
+        </div>
+
     </div>
     <footer>
         <div class="col-sm-12 bawah footer" style="color: #fff;">
