@@ -99,10 +99,18 @@ $halaman=1;
                     </table>
                 </div>
             </div>
-            <div class="col-sm-3"></div>
+            <div class="col-sm-3">
+                <div class="col-sm-12 warbel">
+                    <div class="form-group">
+                        <h2 class="text-center"><span class="fa fa-info-circle"></span> Info</h2>
+                        <p class="text-justify">Kalo ada yang coba masuk atau login ke admin page web ini, mohon secepatnya ditindak dengan cara blaclist mac addressnya, mac address ada di DHCP server log dan sesuai kan dengan IP yang mencoba masuk ke login page.IP tersebut akan valid dengan waktu 14 hari dihitung dari user tersebut mulai terhubung ke Wifi. </p>
+                        <p class="text-right">Thank's</p>
+                    </div>
+                </div>
+            </div>
         </div>
-                <div class="row">
-            <div class="col-sm-12 text-center marginbawah">
+        <div class="row">
+            <div class="col-sm-12 text-center marginbawah marginatas">
                 <?php 
                     if (mysqli_num_rows($ambil) != 0){
                             echo '  
@@ -168,7 +176,6 @@ $halaman=1;
                 ?>
             </div>
         </div>
-
     </div>
     <footer>
         <div class="col-sm-12 bawah footer" style="color: #fff;">
