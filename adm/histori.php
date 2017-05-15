@@ -58,18 +58,25 @@ $halaman=1;
                         </tr>
 
                         <?php 
-                            $ambil = mysqli_query($koneksi, "SELECT * FROM log ORDER BY wkt ASC");
+                            $ambil = mysqli_query($koneksi, "SELECT * FROM log ORDER BY wkt DESC");
                             $baris = mysqli_num_rows($ambil);
 
                             if ($baris == 0) {
-                                echo '<tr><td colspan="6"">Log Kosong.</td></tr>';
+                                echo '<tr><td colspan="6">Log Kosong.</td></tr>';
                             }else{
                                 while ($data = mysqli_fetch_assoc($ambil)) {
+                                    if ($data['os'] == "linux") {
+                                        $os = '<span class="fa fa-linux fa-2x" title="Linux"></span>';
+                                    }elseif ($data['os'] == "window") {
+                                        $os = '<span class="fa fa-windows fa-2x" title="Windows"></span>';
+                                    }elseif ($data['os'] == "mac") {
+                                        $os = '<span class="fa fa-apple fa-2x" title="OSX"></span>';
+                                    }
                                     echo '
                                         <tr>
                                             <td>'.$data['user'].'</td>
                                             <td>'.$data['ip'].'</td>
-                                            <td>'.$data['os'].'</td>
+                                            <td>'.$os.'</td>
                                             <td>'.$data['browser'].'</td>
                                             <td>'.$data['wkt'].'</td>
                                             <td>'.$data['ket'].'</td>
@@ -82,5 +89,15 @@ $halaman=1;
                     </table>
                 </div>
             </div>
+            <div class="col-sm-3"></div>
         </div>
     </div>
+    <footer>
+        <div class="col-sm-12 bawah footer" style="color: #fff;">
+            <div class="col-sm-8 text-center tengah fixed-bottom">
+                <p>&copy; 2017 Copyright Himpunan Mahasiswa Teknik Informatika</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
