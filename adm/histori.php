@@ -108,6 +108,7 @@ $halaman=1;
                         </div>
                         <div class="form-group">
                             <p class="text-justify">Kalo ada yang coba masuk atau login ke admin page web ini, mohon secepatnya ditindak dengan cara blaclist mac addressnya, mac address ada di DHCP server log dan sesuai kan dengan IP yang mencoba masuk ke login page. IP tersebut akan valid dengan waktu 14 hari dihitung dari user tersebut mulai terhubung ke Wifi. </p>
+                            <p class="text-justify">Mohon dipelihara servernya secara berkala, agar tetap berjalan lancar.</p>
                             <p class="text-right">Thank's</p>
                         </div>
                     </div>

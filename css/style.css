@@ -1,3 +1,8 @@
+@font-face{
+    font-family: 'BlackDahlia';
+    src:  url('../fonts/BlackDahlia.ttf') format('truetype');
+}
+
 html,
 body {
   width: 100%;
@@ -267,7 +272,7 @@ sukses
 eror
 ==========*/
 .bodi4{
-    font-family: 'Beyond Wonderland';
+    font-family: 'BlackDahlia';
     background: url('../gambar/eror.jpg');
     background-position: center center;
     background-repeat:  no-repeat;
@@ -279,6 +284,7 @@ eror
     float: none;
     margin: 0 auto;
     margin-top: 140px;
+    word-spacing: 5px;
 }
 
 .jdleror {

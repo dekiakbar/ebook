@@ -26,11 +26,9 @@
 						<div class="col-sm-12 text-center">
 							<h3>Halaman yang ente cari kgk ada, mending balik ke Home aja</h3>
 						</div>
-						<div class="row">
 							<div class="col-sm-12 tmbol text-center">
 							<a href="index.php">Home</a>
-							</div>	
-						</div>
+						</div>	
 					</div>
 				</div>
 			</div>
