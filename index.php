@@ -42,7 +42,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                       
         </button>
-        <a class="navbar-brand" href="#">Informatic Engineering</a>
+        <a class="navbar-brand" href="#">HMTI</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="nav navbar-nav navbar-right">
@@ -152,7 +152,7 @@
               }elseif ($filter == "kate") {
                 $sql = mysqli_query($koneksi, "SELECT * FROM buku ORDER BY kat ASC LIMIT ".$batas.",".$bukuperhal);
               }elseif (isset($_POST['cari'])) {
-                $cari = filter_var($_POST['cari'], FILTER_SANITIZE_STRING);
+                $cari = mysqli_real_escape_string(filter_var($_POST['cari'], FILTER_SANITIZE_STRING));
                 $sql = mysqli_query($koneksi, "SELECT * FROM buku WHERE jdl LIKE '%$cari%' LIMIT ".$batas.",".$bukuperhal);
               }else{
                 $sql = mysqli_query($koneksi, "SELECT * FROM buku  LIMIT ".$batas.",".$bukuperhal);
@@ -165,7 +165,7 @@
                 echo '
                   <div class="col-md-3">
                   <div class="thumbnail">
-                    <div class="panel-heading panel-default text-center"><h4>'.$data['jdl'].'</h4></div>
+                    <div class="panel-heading panel-default text-center"><h5>'.$data['jdl'].'</h5></div>
                       <div class="panel-body text-center">
                         <div class="col-sm-12"><span class="fa fa-book fa-4x" style="color:#aaa;font-size:90px;"></span></div>
                         <div class="col-sm-12">
