@@ -49,7 +49,7 @@
         	<li>
             <form method="post">
               <div class="form-group">
-                <input type="text" class="form-control" name="cari" placeholder="Cari Judul" pattern="[a-zA-Z0-9\s]+" style="height: 25px;margin-top: 15px;font-size: 10px;">
+                <input type="text" class="form-control" name="cari" placeholder="Cari Judul" maxlength="50" pattern="[a-zA-Z0-9\s]+" style="height: 25px;margin-top: 15px;font-size: 10px;">
               </div>
             </form> 
           </li>

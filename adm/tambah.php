@@ -53,19 +53,19 @@
 						<div class="form-group">
 							<label class="control-label col-sm-4">Judul Buku:</label>
 							<div class="col-sm-8">
-								<input type="text" name="judul" class="form-control" placeholder="Masukan Judul Buku" required>
+								<input type="text" name="judul" class="form-control" placeholder="Masukan Judul Buku" maxlength="50" required>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-sm-4">Nama Pengarang:</label>
 							<div class="col-sm-8">
-								<input type="text" name="pengarang" class="form-control" placeholder="Masukan Nama Pengarang" required>
+								<input type="text" name="pengarang" class="form-control" placeholder="Masukan Nama Pengarang" maxlength="20" required>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-sm-4">Donasi:</label>
 							<div class="col-sm-8">
-								<input type="text" name="donasi" class="form-control" placeholder="Nama Penyumbang Buku" required>
+								<input type="text" name="donasi" class="form-control" placeholder="Nama Penyumbang Buku" maxlength="20" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -168,7 +168,7 @@
 								<div class="form-group">
 									<label class="control-label col-sm-4">Nama Kategori:</label>
 									<div class="col-sm-8">
-										<input type="text" name="katbar" class="form-control" placeholder="Kategori Baru" required>
+										<input type="text" name="katbar" class="form-control" placeholder="Kategori Baru" maxlength="20" required>
 									</div>
 								</div>	
 								<div class="form-group">
