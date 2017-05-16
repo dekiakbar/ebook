@@ -1,8 +1,8 @@
 <?php 
-require_once '../kon.php';
-require_once 'session.php';
-require_once '../kripto.php';
-$halaman=1;
+	require_once '../kon.php';
+	require_once 'session.php';
+	require_once '../kripto.php';
+	$halaman=1;
  ?>
 <!DOCTYPE html>
 <html>

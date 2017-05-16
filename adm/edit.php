@@ -1,8 +1,8 @@
 <?php 
-include 'session.php';
-include '../kon.php';
-require_once '../kripto.php';
- 
+	include 'session.php';
+	include '../kon.php';
+	require_once '../kripto.php';
+	 
  	if (isset($_GET['nib'])) {
 		$id 		= encryptor('decrypt',$_GET['nib']);
 	}else{
@@ -10,13 +10,13 @@ require_once '../kripto.php';
 	}
 
 	$ambilbuku 	= mysqli_query($koneksi,"SELECT * FROM buku WHERE id='$id'");
-	$datadb = mysqli_fetch_assoc($ambilbuku);
+	$datadb 	= mysqli_fetch_assoc($ambilbuku);
 ?>
 
  <!DOCTYPE html>
  <html>
  <head>
- 	<title>Admin Edit</title>
+ 	<title>Admin | Edit</title>
  	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -160,7 +160,7 @@ require_once '../kripto.php';
  	</div>
  	<br>
  	<footer>
-        <div class="col-sm-12 bawah" style="color: #fff;">
+        <div class="col-sm-12 bawah" style="color: #fff;margin-top: 45px;">
             <div class="col-sm-8 text-center tengah fixed-bottom">
                 <p>&copy; 2017 Copyright Himpunan Mahasiswa Teknik Informatika</p>
             </div>
