@@ -1,7 +1,14 @@
 <?php 
-require_once 'kon.php';
-require_once 'kripto.php';
-$halaman=1;
+  require_once 'kon.php';
+  require_once 'kripto.php';
+  $halaman=1;
+  session_start();
+  if (isset($_SESSION['pengunjung'])) {
+    
+  }else{
+    $_SESSION['pengunjung'] = $_SERVER['REMOTE_ADDR'];
+    $tambah = mysqli_query($koneksi, "UPDATE tamu SET hitung = hitung+1");
+  }
 ?>
 <!DOCTYPE html>
 <html>

@@ -108,6 +108,11 @@ $halaman=1;
                         <p class="text-right">Thank's</p>
                     </div>
                 </div>
+                <div class="col-sm-12 warbel">
+                    <div class="form-group">
+                        <label class="label-control col-sm-6">Dikunjungi :</label>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
