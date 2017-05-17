@@ -146,6 +146,28 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="label-control col-sm-6 text-right">Disk :</label>
+                            <div class="col-sm-6">
+                                <label class="label-control">
+                                    <?php 
+                                        $kosong = konversi(disk_free_space('/'),2);
+                                        echo $kosong;
+                                     ?>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="label-control col-sm-6 text-right">Free :</label>
+                            <div class="col-sm-6">
+                                <label class="label-control">
+                                    <?php 
+                                        $total  = konversi(disk_total_space('/'),2);
+                                        echo $total;
+                                     ?>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -219,7 +241,7 @@
         </div>
     </div>
     <footer>
-        <div class="col-sm-12 bawah footer" style="color: #fff;margin-top: 1px;">
+        <div class="col-sm-12 bawah footer" style="color: #fff;margin-top: 0px;">
             <div class="col-sm-8 text-center tengah fixed-bottom">
                 <p>&copy; 2017 Copyright Himpunan Mahasiswa Teknik Informatika</p>
             </div>
