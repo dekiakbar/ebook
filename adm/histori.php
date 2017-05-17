@@ -108,7 +108,6 @@
                         </div>
                         <div class="form-group">
                             <p class="text-justify">Kalo ada yang coba masuk atau login ke admin page web ini, mohon secepatnya ditindak dengan cara blaclist mac addressnya, mac address ada di DHCP server log dan sesuai kan dengan IP yang mencoba masuk ke login page. IP tersebut akan valid dengan waktu 14 hari dihitung dari user tersebut mulai terhubung ke Wifi. </p>
-                            <p class="text-justify">Mohon dipelihara servernya secara berkala, agar tetap berjalan lancar.</p>
                             <p class="text-right">Thank's</p>
                         </div>
                     </div>
@@ -124,15 +123,27 @@
                             <h2 class="text-center"><span class="fa fa-search"></span> Viewers</h2>
                         </div>
                         <div class="form-group">
-                            <label class="label-control col-sm-6">Dikunjungi :</label>
+                            <label class="label-control col-sm-6 text-right">Dikunjungi :</label>
                             <div class="col-sm-6">
                                 <label class="label-control"><?php echo $data['hitung']; ?>x</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="label-control col-sm-6">Terunduh :</label>
+                            <label class="label-control col-sm-6 text-right">Terunduh :</label>
                             <div class="col-sm-6">
                                 <label class="label-control"><?php echo $data['donlod']; ?>x</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="label-control col-sm-6 text-right">Ebook :</label>
+                            <div class="col-sm-6">
+                                <label class="label-control">
+                                    <?php 
+                                        $sql            = mysqli_query($koneksi, "SELECT * FROM buku");
+                                        $hitungbaris    = mysqli_num_rows($sql);
+                                        echo $hitungbaris; 
+                                    ?>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -208,7 +219,7 @@
         </div>
     </div>
     <footer>
-        <div class="col-sm-12 bawah footer" style="color: #fff;margin-top: -1px;">
+        <div class="col-sm-12 bawah footer" style="color: #fff;margin-top: 1px;">
             <div class="col-sm-8 text-center tengah fixed-bottom">
                 <p>&copy; 2017 Copyright Himpunan Mahasiswa Teknik Informatika</p>
             </div>
