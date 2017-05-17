@@ -48,6 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	$data 		= mysqli_query($koneksi,$sql);
 	$banding 	= mysqli_num_rows($data);
 	$ip 		= $_SERVER['REMOTE_ADDR'];
+	$namakom	= gethostbyaddr($ip);
     $dklien	 	= getBrowser();
     $broser 	= $dklien['name'].' '.$dklien['version'];
     $os			= $dklien['platform'];
@@ -57,10 +58,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		 $browser			= $_SERVER['HTTP_USER_AGENT'];
          $_SESSION['user']	= $username;
          $_SESSION['login'] = hash('sha512', $browser.$password);
-         $catat = mysqli_query($koneksi,"INSERT INTO log (user, ip, os, browser, wkt, ket) VALUES('$user','$ip','$os','$broser','$wkt','sukses')") or die('Error: ' . mysqli_error($koneksi));
+         $catat = mysqli_query($koneksi,"INSERT INTO log (user, komp, ip, os, browser, wkt, ket) VALUES('$user', '$namakom', '$ip','$os','$broser','$wkt','sukses')") or die('Error: ' . mysqli_error($koneksi));
          header ('location:sukses.php');
       }else{
-      	 $catat = mysqli_query($koneksi,"INSERT INTO log (user, ip, os, browser, wkt, ket) VALUES('$user','$ip','$os','$broser','$wkt','gagal')") or die('Error: ' . mysqli_error($koneksi));
+      	 $catat = mysqli_query($koneksi,"INSERT INTO log (user, komp, ip, os, browser, wkt, ket) VALUES('$user', '$namakom', '$ip','$os','$broser','$wkt','gagal')") or die('Error: ' . mysqli_error($koneksi));
          echo "<script>
          		swal('Eror','Username atau password salah!','error');
          	   </script>";

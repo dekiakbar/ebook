@@ -51,6 +51,7 @@
                     <table class="table text-center">
                         <tr>
                             <th>User</th>
+                            <th>Host</th>
                             <th>IP</th>
                             <th>OS</th>
                             <th>Browser</th>
@@ -86,6 +87,7 @@
                                     echo '
                                         <tr>
                                             <td>'.$data['user'].'</td>
+                                            <td>'.$data['komp'].'</td>
                                             <td>'.$data['ip'].'</td>
                                             <td>'.$os.'</td>
                                             <td>'.$data['browser'].'</td>
@@ -120,7 +122,7 @@
                 <div class="row">
                     <div class="col-sm-12 warbel">
                         <div class="form-group">
-                            <h2 class="text-center"><span class="fa fa-search"></span> Viewers</h2>
+                            <h2 class="text-center"><span class="fa fa-tachometer"></span> SysInfo</h2>
                         </div>
                         <div class="form-group">
                             <label class="label-control col-sm-6 text-right">Dikunjungi :</label>
