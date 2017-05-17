@@ -147,7 +147,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="label-control col-sm-6 text-right">Disk :</label>
+                            <label class="label-control col-sm-6 text-right">Free :</label>
                             <div class="col-sm-6">
                                 <label class="label-control">
                                     <?php 
@@ -158,7 +158,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="label-control col-sm-6 text-right">Free :</label>
+                            <label class="label-control col-sm-6 text-right">Disk :</label>
                             <div class="col-sm-6">
                                 <label class="label-control">
                                     <?php 
